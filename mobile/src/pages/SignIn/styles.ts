@@ -21,7 +21,6 @@ export const InputArea = styled.View`
 `;
 
 export const LoginButton = styled.TouchableOpacity`
-    font-familly: BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 20px;
     color: #757575;
     border-radius: 8px;
@@ -41,5 +40,5 @@ export const SmallText = styled.TouchableOpacity`
     justify-content: center;
     font-size: 20px;
     color: #757575;
-    marting-bottom: 20px;
+    margin-bottom: 20px;
 `;

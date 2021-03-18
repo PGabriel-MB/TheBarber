@@ -9,7 +9,7 @@ export const Container = styled.SafeAreaView`
 
 export const TexLogo = styled.Text`
     color: #fff;
-    font-style: Italic;
+    font-style: italic;
     font-size: 40px
 `;
 

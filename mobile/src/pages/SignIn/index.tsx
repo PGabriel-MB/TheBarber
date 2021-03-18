@@ -27,6 +27,7 @@ const SignIn: React.FC = () => {
     return (
         <Container>
             <Image style={styles.imagem} source={require('../../../assets/TheBarberLogo.svg')} />
+
             <InputArea>
                 <Input
                     maxLength={40}
@@ -41,14 +42,16 @@ const SignIn: React.FC = () => {
                     textContentType='password'
                     secureTextEntry={true}
                 />
+
                 <LoginButton
                     onPress={navigateToHome}
                 >
-                    <LoginTextButton> Login </LoginTextButton>
+                    <LoginTextButton>Login</LoginTextButton>
                 </LoginButton>
             </InputArea>
+
             <SmallText>
-                <Text>Não Possui Conta? </Text> <Text style={{ fontWeight: '900' }}>Cadastre-se</Text>
+                <Text>Não Possui Conta? </Text><Text style={{ fontWeight: '900' }}>Cadastre-se</Text>
             </SmallText>
         </Container>
     );
