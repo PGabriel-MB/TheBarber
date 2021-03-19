@@ -21,7 +21,9 @@ const SignIn: React.FC = () => {
     }
 
     const navigateToSignUp = () => {
-        navigation.navigate('SignUp');
+        navigation.reset({
+            routes: [{name: 'SignUp'}]
+        });
     }
 
     return (
@@ -50,8 +52,9 @@ const SignIn: React.FC = () => {
                 </LoginButton>
             </InputArea>
 
-            <SmallText>
-                <Text>Não Possui Conta? </Text><Text style={{ fontWeight: '900' }}>Cadastre-se</Text>
+            <SmallText onPress={navigateToSignUp}>
+                <Text style={styles.messageTxt}>Não Possui Conta? </Text>
+                <Text style={{ fontWeight: '900', color: '#757575' }}>Cadastre-se</Text>
             </SmallText>
         </Container>
     );
@@ -62,6 +65,9 @@ const styles = StyleSheet.create({
         width: 141,
         height: 89,
         marginBottom: 70
+    },
+    messageTxt: {
+        color: '#757575'
     }
 });
 

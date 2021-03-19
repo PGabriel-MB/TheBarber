@@ -40,6 +40,5 @@ export const SmallText = styled.TouchableOpacity`
     flex-direction: row;
     justify-content: center;
     font-size: 20px;
-    color: #757575;
     margin-bottom: 20px;
 `;
