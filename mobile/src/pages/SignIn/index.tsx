@@ -17,7 +17,9 @@ const SignIn: React.FC = () => {
     const navigation = useNavigation();
 
     const navigateToHome = () => {
-
+        navigation.reset({
+            routes: [{name: 'MainTab'}]
+        })
     }
 
     const navigateToSignUp = () => {

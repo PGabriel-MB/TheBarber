@@ -13,7 +13,7 @@ export const Input = styled.TextInput`
     font-size: 20px;
     padding: 10px;
     border-radius: 8px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 `;
 
 export const InputArea = styled.View`
@@ -34,4 +34,11 @@ export const LoginButton = styled.TouchableOpacity`
 export const LoginTextButton = styled.Text`
     font-size: 20px;
     color: #757575;
+`;
+
+export const SmallText = styled.TouchableOpacity`
+    flex-direction: row;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 20px;
 `;

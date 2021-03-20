@@ -8,7 +8,8 @@ import {
     InputArea,
     Input,
     LoginButton,
-    LoginTextButton
+    LoginTextButton,
+    SmallText
 } from "./styles";
 
 
@@ -16,7 +17,15 @@ const SignUp: React.FC = () => {
     const navigation = useNavigation();
 
     const navigateToHome = () => {
+        navigation.reset({
+            routes: [{name: 'MainTab'}]
+        })
+    }
 
+    const navigateToSignIn = () => {
+        navigation.reset({
+            routes: [{name: 'SignIn'}]
+        })
     }
 
 
@@ -62,6 +71,11 @@ const SignUp: React.FC = () => {
                     <LoginTextButton>Cadastrar</LoginTextButton>
                 </LoginButton>
             </InputArea>
+
+            <SmallText onPress={navigateToSignIn}>
+                <Text style={styles.messageTxt}>Já possui Conta? </Text>
+                <Text style={{ fontWeight: '900', color: '#757575' }}>Faça Login</Text>
+            </SmallText>
         </Container>
     );
 }
