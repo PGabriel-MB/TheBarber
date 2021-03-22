@@ -8,7 +8,15 @@ import Favorites from "../pages/Favorites";
 import Profile from "../pages/Profile";
 import CustomTabBar from "../components/CustomTabBar";
 
-const Tab = createBottomTabNavigator();
+type BottomTabParamList = {
+    Home: undefined,
+    Search: undefined,
+    Appointments: undefined,
+    Favorites: undefined,
+    Profile: undefined
+}
+
+const Tab = createBottomTabNavigator<BottomTabParamList>();
 
 const MainTab = () => (
     <Tab.Navigator tabBar={props => <CustomTabBar {...props} />}>

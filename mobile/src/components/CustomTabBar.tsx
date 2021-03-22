@@ -1,7 +1,7 @@
 import React from "react";
 import { Text } from "react-native";
 import styled from "styled-components/native";
-import { useNavigation } from "@react-navigation/native";
+import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 
 
 const TabArea = styled.View`
@@ -16,28 +16,40 @@ const TabItem = styled.TouchableOpacity`
     align-items: center;
 `;
 
-const CustomMainTab: React.FC = ({ navigation: useNavigation() }) => {
+const TabItemCenter = styled.TouchableOpacity`
+    width: 70px;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 35px;
+    border: 3px solid #0A0A0A;
+    margin-top: -25px;
+`;
+
+
+const CustomMainTab = (props: BottomTabBarProps): React.ReactElement => {
 
     const goTo = (route: string) => {
-        navigation.navigate(route);
+        props.navigation.navigate(route);
     }
 
     return (
         <TabArea>
             <TabItem onPress={() => goTo('Home')}>
-                <Text style={{ color: '#ffffff' }}>H</Text>
+                <Text style={{ color: '#ffffff', opacity: props.state.index === 0 ? 1 : 0.5 }}>H</Text>
             </TabItem>
             <TabItem onPress={() => goTo('Search')}>
-                <Text style={{ color: '#ffffff' }}>S</Text>
+                <Text style={{ color: '#ffffff', opacity: props.state.index === 1 ? 1 : 0.5 }}>S</Text>
             </TabItem>
-            <TabItem onPress={() => goTo('Appointments')}>
-                <Text style={{ color: '#ffffff' }}>A</Text>
-            </TabItem>
-            <TabItem onPress={() => goTo('Favorite')}>
-                <Text style={{ color: '#ffffff' }}>F</Text>
+            <TabItemCenter onPress={() => goTo('Appointments')}>
+                <Text style={{ color: '#0A0A0A'}}>A</Text>
+            </TabItemCenter>
+            <TabItem onPress={() => goTo('Favorites')}>
+                <Text style={{ color: '#ffffff', opacity: props.state.index === 3 ? 1 : 0.5 }}>F</Text>
             </TabItem>
             <TabItem onPress={() => goTo('Profile')}>
-                <Text style={{ color: '#ffffff' }}>P</Text>
+                <Text style={{ color: '#ffffff', opacity: props.state.index === 4 ? 1 : 0.5 }}>P</Text>
             </TabItem>
         </TabArea>
     );
