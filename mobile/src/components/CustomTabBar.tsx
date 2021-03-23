@@ -1,7 +1,14 @@
 import React from "react";
-import { Text } from "react-native";
 import styled from "styled-components/native";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { 
+    faHome,
+    faSearch,
+    faCalendarAlt,
+    faHeart,
+    faUserCircle
+} from '@fortawesome/free-solid-svg-icons';
 
 
 const TabArea = styled.View`
@@ -37,19 +44,19 @@ const CustomMainTab = (props: BottomTabBarProps): React.ReactElement => {
     return (
         <TabArea>
             <TabItem onPress={() => goTo('Home')}>
-                <Text style={{ color: '#ffffff', opacity: props.state.index === 0 ? 1 : 0.5 }}>H</Text>
+                <FontAwesomeIcon icon={ faHome } size={ 27 } style={{ color: '#ffffff', opacity: props.state.index === 0 ? 1 : 0.8 }} />
             </TabItem>
             <TabItem onPress={() => goTo('Search')}>
-                <Text style={{ color: '#ffffff', opacity: props.state.index === 1 ? 1 : 0.5 }}>S</Text>
+                <FontAwesomeIcon icon={ faSearch } size={ 27 } style={{ color: '#ffffff', opacity: props.state.index === 1 ? 1 : 0.8 }} />
             </TabItem>
             <TabItemCenter onPress={() => goTo('Appointments')}>
-                <Text style={{ color: '#0A0A0A'}}>A</Text>
+                <FontAwesomeIcon icon={ faCalendarAlt } size={ 27 } style={{ color: '#000000' }} />
             </TabItemCenter>
             <TabItem onPress={() => goTo('Favorites')}>
-                <Text style={{ color: '#ffffff', opacity: props.state.index === 3 ? 1 : 0.5 }}>F</Text>
+                <FontAwesomeIcon icon={ faHeart } size={ 27 } style={{ color: '#ffffff', opacity: props.state.index === 3 ? 1 : 0.8 }} />
             </TabItem>
             <TabItem onPress={() => goTo('Profile')}>
-                <Text style={{ color: '#ffffff', opacity: props.state.index === 4 ? 1 : 0.5 }}>P</Text>
+                <FontAwesomeIcon icon={ faUserCircle } size={ 27 } style={{ color: '#ffffff', opacity: props.state.index === 4 ? 1 : 0.8 }} />
             </TabItem>
         </TabArea>
     );
