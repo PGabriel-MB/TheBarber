@@ -30,6 +30,24 @@ export const SearchButton = styled.TouchableOpacity`
     margin-top: 20px;
 `;
 
-export const LocationArea = styled.View``;
-export const LocationInput = styled.TextInput``;
-export const LocationFinder = styled.TouchableOpacity``;
+export const LocationArea = styled.View`
+    background-color: #0A0A0A;
+    height: 60px;
+    border-radius: 30px;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 30px;
+`;
+
+export const LocationInput = styled.TextInput`
+    flex: 1;
+    font-size: 16px;
+    color: #AAAAAA;
+`;
+
+export const LocationFinder = styled.TouchableOpacity`
+    height: 24px;
+    width: 24px;
+`;

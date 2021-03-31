@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
     Container,
@@ -18,8 +18,9 @@ import { faSearch, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 
 const Home: React.FC = () => {
-
     const navigation = useNavigation();
+
+    const [locationText, setLocationText] = useState('');
 
     return (
         <Container>
@@ -34,7 +35,12 @@ const Home: React.FC = () => {
                 </HeaderArea>
 
                 <LocationArea>
-                    <LocationInput />
+                    <LocationInput 
+                        placeholderTextColor="#AAAAAA"
+                        placeholder="Onde você está?" 
+                        value={locationText}
+                        onChangeText={(t) => setLocationText(t)}
+                    />
                     <LocationFinder>
                         <FontAwesomeIcon icon={ faMapMarkerAlt } size={24} style={{ color: '#AAAAAA' }}  />
                     </LocationFinder>
