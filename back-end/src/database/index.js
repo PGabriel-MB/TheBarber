@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const password = 'adminPGabriel'; // a definir juntamente com o banco de dados
+const password = 'admin'; // a definir juntamente com o banco de dados
 const user = 'adminPGabriel';
 const dbname = 'TheBarber';
 

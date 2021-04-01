@@ -1,5 +1,5 @@
 {
-  "name": "taskList_NodeBackend",
+  "name": "TheBarberBackend",
   "version": "1.0.0",
   "description": "A nodejs back-end to tasklist Application",
   "main": "index.js",

@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import * as Permissions from "expo-permissions";
+import * as Location from "expo-location";
+
 import {
     Container,
     Scroller,
@@ -10,7 +13,8 @@ import {
 
     LocationArea,
     LocationInput,
-    LocationFinder
+    LocationFinder,
+    LoadingIcon
 } from "./styles";
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
@@ -20,7 +24,31 @@ import { faSearch, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 const Home: React.FC = () => {
     const navigation = useNavigation();
 
+    const [permission, askPermission] = Permissions.usePermissions(Permissions.LOCATION, { ask: true });
+    
     const [locationText, setLocationText] = useState('');
+    const [coords, setCoords] = useState({});
+    const [loading, setLoading] = useState(false);
+    const [list, setList] = useState([]);
+    
+    const handleLocationFinder = async () => {
+        await askPermission();
+
+        if(permission?.status === 'granted') {
+            setLoading(true);
+            setLocationText('');
+            setList([]);
+
+            setCoords({});
+            let location = await Location.getCurrentPositionAsync({});
+            setCoords(location.coords);
+            getBarbers();
+        }
+    }
+
+    const getBarbers = async () => {
+
+    }
 
     return (
         <Container>
@@ -41,10 +69,13 @@ const Home: React.FC = () => {
                         value={locationText}
                         onChangeText={(t) => setLocationText(t)}
                     />
-                    <LocationFinder>
+                    <LocationFinder onPress={handleLocationFinder}>
                         <FontAwesomeIcon icon={ faMapMarkerAlt } size={24} style={{ color: '#AAAAAA' }}  />
                     </LocationFinder>
                 </LocationArea>
+
+                {loading &&
+                <LoadingIcon size="large" color="#757575" />}
             </Scroller>
         </Container>
     )
