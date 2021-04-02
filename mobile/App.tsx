@@ -5,12 +5,15 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
 import { MainStack } from './src/stacks/MainStack';
+import { UserProvider } from "./src/contexts/UserContext";
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <StatusBar style="light" />
-      <MainStack />
-    </NavigationContainer>
+    <UserProvider>
+      <NavigationContainer>
+        <StatusBar style="light" />
+        <MainStack />
+      </NavigationContainer>
+    </UserProvider>
   );
 }

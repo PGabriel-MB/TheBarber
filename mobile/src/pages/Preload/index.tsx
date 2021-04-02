@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Image, StyleSheet } from "react-native";
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from "@react-navigation/native";
 import {
     Container,
@@ -12,11 +12,14 @@ const Preload: React.FC = () => {
     const navigation = useNavigation();
     
     useEffect(() => {
-        const checkToken = () => {
+        const checkToken = async () => {
+            const token = await AsyncStorage.getItem('token');
 
-            setTimeout(() => {
+            if(token) {
+                // validar o token
+            } else {
                 navigation.navigate('SignIn');
-            }, 3000);
+            }
         }
         checkToken();
     }, []);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image, StyleSheet, Text } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
@@ -15,6 +15,9 @@ import {
 
 const SignIn: React.FC = () => {
     const navigation = useNavigation();
+
+    const [email, setEmail ] = useState('');
+    const [password, setPassword ] = useState('');
 
     const navigateToHome = () => {
         navigation.reset({
@@ -38,6 +41,8 @@ const SignIn: React.FC = () => {
                     placeholder='E-mail'
                     placeholderTextColor="#fff"
                     textContentType='emailAddress'
+                    value={email}
+                    onChangeText={(t) => setEmail(t)}
                 />
                 <Input
                     maxLength={40}
@@ -45,6 +50,8 @@ const SignIn: React.FC = () => {
                     placeholderTextColor="#fff"
                     textContentType='password'
                     secureTextEntry={true}
+                    value={password}
+                    onChangeText={(t) => setPassword(t)}
                 />
 
                 <LoginButton
