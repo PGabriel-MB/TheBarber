@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
     if(!parts.length === 2)
         return res.status(401).send({ error: 'Token error' });
 
-    const [ scheme, space, token ] = parts;
+    const [ scheme, token ] = parts;
 
     if(!/^Bearer$/i.test(scheme))
         return res.status(401).send({ error: 'Token malformatted' });
