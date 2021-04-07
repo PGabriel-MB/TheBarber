@@ -11,18 +11,27 @@ import {
     SmallText,
     LoginTextButton
 } from "./styles";
+import { AuthService } from "../../api/services/AuthService";
+import { ConstantService } from "../../api/services/ConstantService";
 
 
 const SignIn: React.FC = () => {
+
+    const authService = new AuthService(new ConstantService());
+
     const navigation = useNavigation();
 
     const [email, setEmail ] = useState('');
     const [password, setPassword ] = useState('');
 
     const navigateToHome = () => {
-        navigation.reset({
-            routes: [{name: 'MainTab'}]
-        })
+        authService.signIn({ email, password })
+            .then(() => console.log('TESTE'))
+            .catch((err) => console.log('DEU RUIM', err))
+
+        // navigation.reset({
+        //     routes: [{name: 'MainTab'}]
+        // })
     }
 
     const navigateToSignUp = () => {
