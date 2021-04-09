@@ -24,10 +24,10 @@ const SignIn: React.FC = () => {
     const [email, setEmail ] = useState('');
     const [password, setPassword ] = useState('');
 
-    const navigateToHome = () => {
-        authService.signIn({ email, password })
-            .then(() => console.log('TESTE'))
-            .catch((err) => console.log('DEU RUIM', err))
+    async function navigateToHome() {
+        await authService.signIn({ email, password })
+            .then(async () => await alert('TESTE'))
+            .catch(async (err) => await alert(err))
 
         // navigation.reset({
         //     routes: [{name: 'MainTab'}]

@@ -8,10 +8,10 @@ export class AuthService {
     ){}
 
     signIn = async (credentials: LoginCredentials) => {
-        return await axios.post(`${this.constantService.getEndpoint()}/auth/authenticate`, credentials)
+        return await axios.post(`${this.constantService.getEndpoint()}/auth/authenticate`, { email: credentials.email, password: credentials.password })
     }
 
     signUp = async (credentials: RegisterCredentials ) => {
-        return await axios.post(`${this.constantService.getEndpoint()}/auth/register`)
+        return await axios.post(`${this.constantService.getEndpoint()}/auth/register`, credentials)
     }
 }

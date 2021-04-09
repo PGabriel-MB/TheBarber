@@ -1,5 +1,5 @@
 export class ConstantService {
-    private baseEndPoint = 'http://localhost:3000';
+    private baseEndPoint = 'http://197.168.0.102:3000';
 
     constructor(){}
 
