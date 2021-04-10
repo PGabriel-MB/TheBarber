@@ -12,12 +12,9 @@ import {
     LoginTextButton
 } from "./styles";
 import { AuthService } from "../../api/services/AuthService";
-import { ConstantService } from "../../api/services/ConstantService";
-
 
 const SignIn: React.FC = () => {
-
-    const authService = new AuthService(new ConstantService());
+    const authService = new AuthService();
 
     const navigation = useNavigation();
 
@@ -26,8 +23,8 @@ const SignIn: React.FC = () => {
 
     async function navigateToHome() {
         await authService.signIn({ email, password })
-            .then(async () => await alert('TESTE'))
-            .catch(async (err) => await alert(err))
+            .then(() =>  console.log('TO LOGADO, CARA!!!'))
+            .catch(err => console.log('DEU RUIM', err));
 
         // navigation.reset({
         //     routes: [{name: 'MainTab'}]

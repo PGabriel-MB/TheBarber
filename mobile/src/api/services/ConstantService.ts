@@ -1,9 +1,7 @@
-export class ConstantService {
-    private baseEndPoint = 'http://197.168.0.102:3000';
+import axios from 'axios';
 
-    constructor(){}
+const ConstantService = axios.create({
+  baseURL: 'http://192.168.0.102:3000',
+});
 
-    getEndpoint() {
-        return this.baseEndPoint;
-    }
-}
+export default ConstantService;
