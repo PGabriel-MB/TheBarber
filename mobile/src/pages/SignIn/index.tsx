@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Image, StyleSheet, Text } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
     Container,
     InputArea,
@@ -12,23 +12,39 @@ import {
     LoginTextButton
 } from "./styles";
 import { AuthService } from "../../api/services/AuthService";
+import { UserContext } from "../../contexts/UserContext";
 
 const SignIn: React.FC = () => {
+    const { dispatch: userDispatch } = useContext(UserContext);
+
+
     const authService = new AuthService();
 
     const navigation = useNavigation();
 
-    const [email, setEmail ] = useState('');
-    const [password, setPassword ] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-    async function navigateToHome() {
-        await authService.signIn({ email, password })
-            .then(() =>  console.log('TO LOGADO, CARA!!!'))
-            .catch(err => console.log('DEU RUIM', err));
+    const navigateToHome = async () => {
 
-        // navigation.reset({
-        //     routes: [{name: 'MainTab'}]
-        // })
+        if (email !== '' && password !== '') {
+            await authService.signIn({ email, password })
+                .then(async res => {
+                    await AsyncStorage.setItem('token', res.data.token);
+
+                    userDispatch({
+                        type: 'setUser',
+                        payload: res.data.user
+                    })
+                })
+                .catch(() => alert('E-mail e/ou senha inválidos!'));
+
+                navigation.reset({
+                    routes: [{name: 'MainTab'}]
+                });
+        } else {
+            alert('Verifique todos os campos!');
+        }
     }
 
     const navigateToSignUp = () => {
@@ -49,6 +65,8 @@ const SignIn: React.FC = () => {
                     textContentType='emailAddress'
                     value={email}
                     onChangeText={(t) => setEmail(t)}
+                    autoCapitalize='none'
+                    autoCompleteType='email'
                 />
                 <Input
                     maxLength={40}
