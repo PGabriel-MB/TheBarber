@@ -53,4 +53,15 @@ router.post('/authenticate', async (req, res) => {
     });
 })
 
+router.post('/validate-token', async (req, res) => {
+    const { token } = req.body;
+
+    await jwt.verify(token, authConfig.secret, (err, decoded) => {
+        if (err) return res.status(401).send({ error: 'Invalid Token or Expired!' })
+        
+        //req.userId = decoded.id;
+        return res.send({ success: "Validated Token!", token })
+    })
+})
+
 module.exports = app => app.use('/auth', router);
