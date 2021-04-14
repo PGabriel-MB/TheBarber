@@ -16,7 +16,9 @@ const Preload: React.FC = () => {
             const token = await AsyncStorage.getItem('token');
 
             if(token) {
-                // validar o token
+                navigation.reset({
+                    routes: [{name: 'MainTab'}]
+                });
             } else {
                 navigation.navigate('SignIn');
             }
