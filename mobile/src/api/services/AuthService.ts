@@ -11,4 +11,8 @@ export class AuthService {
     signUp = async (credentials: RegisterCredentials ) => {
         return await this.constantService.post('/auth/register', credentials);
     }
+
+    checkToken = async (token: string) => {
+        return await this.constantService.post('/validate-token', { token });
+    }
 }

@@ -21,7 +21,7 @@ export const InputArea = styled.View`
     width: 100%;
 `;
 
-export const LoginButton = styled.TouchableOpacity`
+export const RegistrateButton = styled.TouchableOpacity`
     font-size: 20px;
     color: #757575;
     border-radius: 8px;
@@ -31,7 +31,7 @@ export const LoginButton = styled.TouchableOpacity`
     align-items: center;
 `;
 
-export const LoginTextButton = styled.Text`
+export const RegistrateTextButton = styled.Text`
     font-size: 20px;
     color: #757575;
 `;

@@ -1,5 +1,5 @@
-import React from "react";
-import { Image, StyleSheet, Text } from "react-native";
+import React, { useState } from "react";
+import { Image, StyleSheet, Text, ToastAndroid } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -7,19 +7,34 @@ import {
     Container,
     InputArea,
     Input,
-    LoginButton,
-    LoginTextButton,
+    RegistrateButton,
+    RegistrateTextButton,
     SmallText
 } from "./styles";
 
 
 const SignUp: React.FC = () => {
     const navigation = useNavigation();
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password1, setPassword1] = useState('');
+    const [password2, setPassword2] = useState('');
 
-    const navigateToHome = () => {
-        navigation.reset({
-            routes: [{name: 'MainTab'}]
-        })
+    const handleRegistrate = () => {
+        if(name && email && password1 && password2) {
+            if (password1 === password2) {
+                // registrate the user
+            } else {
+                ToastAndroid.show('As senhas não conferem!', ToastAndroid.SHORT);
+            }
+
+        } else {
+            ToastAndroid.show('Verifique se todos campos estão preenchidos!', ToastAndroid.SHORT);
+        }
+
+        //navigation.reset({
+        //    routes: [{name: 'MainTab'}]
+        //})
     }
 
     const navigateToSignIn = () => {
@@ -39,6 +54,8 @@ const SignUp: React.FC = () => {
                     placeholder='Usuário'
                     placeholderTextColor="#fff"
                     textContentType='name'
+                    value={name}
+                    onChangeText={(t) => setName(t)}
                 />
 
                 <Input
@@ -46,6 +63,10 @@ const SignUp: React.FC = () => {
                     placeholder='E-mail'
                     placeholderTextColor="#fff"
                     textContentType='emailAddress'
+                    value={email}
+                    onChangeText={(t) => setEmail(t)}
+                    autoCapitalize='none'
+                    autoCompleteType='email'
                 />
 
 
@@ -55,6 +76,8 @@ const SignUp: React.FC = () => {
                     placeholderTextColor="#fff"
                     textContentType='password'
                     secureTextEntry={true}
+                    value={password1}
+                    onChangeText={(t) => setPassword1(t)}
                 />
 
                 <Input
@@ -63,13 +86,15 @@ const SignUp: React.FC = () => {
                     placeholderTextColor="#fff"
                     textContentType='password'
                     secureTextEntry={true}
+                    value={password2}
+                    onChangeText={(t) => setPassword2(t)}
                 />
 
-                <LoginButton
-                    onPress={navigateToHome}
+                <RegistrateButton
+                    onPress={handleRegistrate}
                 >
-                    <LoginTextButton>Cadastrar</LoginTextButton>
-                </LoginButton>
+                    <RegistrateTextButton>Cadastrar</RegistrateTextButton>
+                </RegistrateButton>
             </InputArea>
 
             <SmallText onPress={navigateToSignIn}>

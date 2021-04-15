@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Image, StyleSheet } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from "@react-navigation/native";
+import { AuthService } from "../../api/services/AuthService";
 import {
     Container,
     TexLogo,
@@ -10,17 +11,24 @@ import {
 
 const Preload: React.FC = () => {
     const navigation = useNavigation();
+    const authService = new AuthService();
     
     useEffect(() => {
         const checkToken = async () => {
             const token = await AsyncStorage.getItem('token');
-
+            
             if(token) {
-                navigation.reset({
-                    routes: [{name: 'MainTab'}]
-                });
+                authService.checkToken(token)
+                    .then(() => navigation.reset({
+                        routes: [{name: 'MainTab'}]
+                    }))
+                    .catch(() => navigation.reset({
+                        routes: [{ name: 'SignIn' }]
+                    }));
             } else {
-                navigation.navigate('SignIn');
+                navigation.reset({
+                    routes: [{ name: 'SignIn' }]
+                });
             }
         }
         checkToken();
