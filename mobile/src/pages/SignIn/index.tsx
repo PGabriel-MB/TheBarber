@@ -35,7 +35,7 @@ const SignIn: React.FC = () => {
                     userDispatch({
                         type: 'setUser',
                         payload: res.data.user
-                    })
+                    });
                 })
                 .catch(() => alert('E-mail e/ou senha inválidos!'));
 

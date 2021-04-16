@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Image, StyleSheet, Text, ToastAndroid } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
@@ -11,19 +11,40 @@ import {
     RegistrateTextButton,
     SmallText
 } from "./styles";
+import { AuthService } from "../../api/services/AuthService";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { UserContext } from "../../contexts/UserContext";
 
 
 const SignUp: React.FC = () => {
     const navigation = useNavigation();
+    const authService = new AuthService();
+    const { dispatch: userDispatch } = useContext(UserContext);
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password1, setPassword1] = useState('');
     const [password2, setPassword2] = useState('');
 
     const handleRegistrate = () => {
-        if(name && email && password1 && password2) {
+        if (name && email && password1 && password2) {
             if (password1 === password2) {
-                // registrate the user
+                authService.signUp(
+                    { name, email, password: password2 }
+                ).then(res => {
+                    AsyncStorage.setItem('token', res.data.token);
+
+                    ToastAndroid.show('Cadastro realizado com Sucesso!', ToastAndroid.SHORT);
+
+                    userDispatch({
+                        type: 'setUser',
+                        payload: res.data.user
+                    });
+
+                    navigation.reset({
+                        routes: [{ name: 'MainTab' }]
+                    });
+                }).catch(() => alert('Oops!... Falha no Cadastro. Tente fazer login ou cadastre-se novamente.'));
             } else {
                 ToastAndroid.show('As senhas não conferem!', ToastAndroid.SHORT);
             }
@@ -31,15 +52,11 @@ const SignUp: React.FC = () => {
         } else {
             ToastAndroid.show('Verifique se todos campos estão preenchidos!', ToastAndroid.SHORT);
         }
-
-        //navigation.reset({
-        //    routes: [{name: 'MainTab'}]
-        //})
     }
 
     const navigateToSignIn = () => {
         navigation.reset({
-            routes: [{name: 'SignIn'}]
+            routes: [{ name: 'SignIn' }]
         })
     }
 

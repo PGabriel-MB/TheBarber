@@ -57,7 +57,10 @@ router.post('/validate-token', async (req, res) => {
     const { token } = req.body;
 
     await jwt.verify(token, authConfig.secret, (err, decoded) => {
-        if (err) return res.status(401).send({ error: err.message })
+        if (err) {
+            console.error('Error on verifying token', err)
+            return res.status(401).send({ error: err.message })
+        } 
         
         //req.userId = decoded.id;
         return res.send({ success: "Validated Token!", token })
