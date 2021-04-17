@@ -13,6 +13,6 @@ app.listen(3000, () => {
 });
 
 require('./controllers/authController')(app);
-require('./controllers/projectController')(app);
+require('./controllers/usersController')(app);
 
 module.exports = app;
