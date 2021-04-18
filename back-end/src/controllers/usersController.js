@@ -7,8 +7,8 @@ const router = express.Router();
 
 router.use(authMiddlware);
 
-router.get('/', (req, res) => {
-    const users = User.find()
+router.get('/', async (req, res) => {
+    const users = await User.find();
     res.send({ users });
 });
 

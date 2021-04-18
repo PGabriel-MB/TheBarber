@@ -19,10 +19,12 @@ import {
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faSearch, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { UserService } from "../../api/services/UserService";
 
 
 const Home: React.FC = () => {
     const navigation = useNavigation();
+    const userService = new UserService();
 
     const [permission, askPermission] = Permissions.usePermissions(Permissions.LOCATION, { ask: true });
     
@@ -47,7 +49,12 @@ const Home: React.FC = () => {
     }
 
     const getBarbers = async () => {
-
+        await userService.getUsers()
+            .then(async res => {
+                const users = await res.data.users;
+                setList(users);
+                console.log(list);
+            });
     }
 
     return (
