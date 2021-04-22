@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components/native";
-import { User } from "../api/models/User";
+import { User } from "../api/models/interfaces/User";
 
 const Area = styled.TouchableOpacity`
     background-color: #ffffff;
@@ -39,7 +39,7 @@ const SeeProfileButtonText = styled.Text`
     font-size: 16px;
 `;
 
-export const BarberItem = ( data: User ) => {
+export const BarberItemUser = ( data: User ) => {
     return (
         <Area>
             <Avatar source="" />

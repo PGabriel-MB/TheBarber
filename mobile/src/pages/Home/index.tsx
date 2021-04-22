@@ -22,8 +22,8 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faSearch, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { UserService } from "../../api/services/UserService";
-import { BarberItem } from "../../components/BarberItem";
-import { User } from "../../api/models/User";
+import { BarberItemUser } from "../../components/BarberItemUser";
+import { User } from "../../api/models/interfaces/User";
 
 
 const Home: React.FC = () => {
@@ -59,7 +59,7 @@ const Home: React.FC = () => {
             .then(async res => {
                 const users = await res.data.users;
                 const newUsers: User[] = [];
-                users.map((user: any) => (newUsers.push(new User(user))));
+                users.map((user: User) => (newUsers.push(user)));
                 setList(users);
                 console.log(list);
             });
@@ -100,7 +100,7 @@ const Home: React.FC = () => {
 
                 <ListArea>
                     {list.map((item: User, key) => (
-                        <BarberItem key={key} data={item}></BarberItem>
+                        <BarberItemUser key={key} {...item}  />
                     ))}
                 </ListArea>
             </Scroller>
