@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components/native";
 import { User } from "../api/models/interfaces/User";
+import { Star } from "./Stars";
 
 const Area = styled.TouchableOpacity`
     background-color: #ffffff;
@@ -52,6 +53,7 @@ export const BarberItemUser = ( data: User ) => {
             <InfoArea>
                 <UserName>{data.name}</UserName>
 
+                <Star showRankingNumber={false} ranking={2} />
                 <SeeProfileButton>
                     <SeeProfileButtonText>Ver Perfil</SeeProfileButtonText>
                 </SeeProfileButton>
