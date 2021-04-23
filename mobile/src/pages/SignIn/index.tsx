@@ -36,12 +36,12 @@ const SignIn: React.FC = () => {
                         type: 'setUser',
                         payload: res.data.user
                     });
+
+                    navigation.reset({
+                        routes: [{name: 'MainTab'}]
+                    });
                 })
                 .catch(() => alert('E-mail e/ou senha inválidos!'));
-
-                navigation.reset({
-                    routes: [{name: 'MainTab'}]
-                });
         } else {
             alert('Verifique todos os campos!');
         }

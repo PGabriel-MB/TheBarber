@@ -10,10 +10,15 @@ const Area = styled.TouchableOpacity`
     flex-direction: row;
 `;
 
-const Avatar = styled.Image`
-    width: 88px;
-    height: 88px;
-    border-radius: 20px;
+// const Avatar = styled.Image`
+//     width: 88px;
+//     height: 88px;
+//     border-radius: 20px;
+// `;
+
+const Avatar = styled.Text`
+    font-size: 30px;
+    color: red;
 `;
 
 
@@ -40,9 +45,10 @@ const SeeProfileButtonText = styled.Text`
 `;
 
 export const BarberItemUser = ( data: User ) => {
+    const letter = data.name[0] + data.name[1]
     return (
         <Area>
-            <Avatar source="" />
+            <Avatar>{letter.toUpperCase()}</Avatar>
             <InfoArea>
                 <UserName>{data.name}</UserName>
 
