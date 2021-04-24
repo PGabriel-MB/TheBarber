@@ -53,7 +53,7 @@ export const BarberItemUser = ( data: User ) => {
             <InfoArea>
                 <UserName>{data.name}</UserName>
 
-                <Star showRankingNumber={false} ranking={2} />
+                <Star showRankingNumber={true} ranking={1.5} />
                 <SeeProfileButton>
                     <SeeProfileButtonText>Ver Perfil</SeeProfileButtonText>
                 </SeeProfileButton>

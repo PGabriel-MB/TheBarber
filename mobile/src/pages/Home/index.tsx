@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { RefreshControl } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import * as Permissions from "expo-permissions";
 import * as Location from "expo-location";
@@ -36,6 +37,7 @@ const Home: React.FC = () => {
     const [coords, setCoords] = useState({});
     const [loading, setLoading] = useState(false);
     const [list, setList] = useState<User[]>([]);
+    const [refreshing, setRefreshing] = useState<boolean>(false);
     
     const handleLocationFinder = async () => {
         await askPermission();
@@ -61,7 +63,6 @@ const Home: React.FC = () => {
                 const newUsers: User[] = [];
                 users.map((user: User) => (newUsers.push(user)));
                 setList(users);
-                console.log(list);
             }).catch(err => console.log('erro da preula',err));
 
         setLoading(false);
@@ -71,9 +72,16 @@ const Home: React.FC = () => {
         getBarbers();
     }, []);
 
+    const onRefresh = () => {
+        setRefreshing(false);
+        getBarbers();
+    }
+
     return (
         <Container>
-            <Scroller>
+            <Scroller refreshControl={
+                <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }>
                 <HeaderArea>
                     <HeaderTitle numberOfLines={2}>
                         Encontre o seu barbeiro favorito!

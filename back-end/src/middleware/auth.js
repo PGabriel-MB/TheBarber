@@ -5,7 +5,6 @@ const authConfig = require('../config/auth.json');
 
 module.exports = (req, res, next) => {
 
-    console.log('chegou aqui')
     const authHeader = req.headers.authorization;
 
     if(!authHeader)
