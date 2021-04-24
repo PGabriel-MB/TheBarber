@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from "styled-components/native";
+import { useNavigation } from "@react-navigation/native";
+
 import { User } from "../api/models/interfaces/User";
 import { Star } from "./Stars";
 
@@ -46,9 +48,18 @@ const SeeProfileButtonText = styled.Text`
 `;
 
 export const BarberItemUser = ( data: User ) => {
-    const letter = data.name[0] + data.name[1]
+    const letter = data.name[0] + data.name[1];
+    const navigation = useNavigation();
+
+    const handleClick = () => {
+        navigation.navigate('Barber', {
+            id: data._id,
+            ranking: 1.5,
+            name: data.name
+        });
+    }
     return (
-        <Area>
+        <Area onPress={handleClick}>
             <Avatar>{letter.toUpperCase()}</Avatar>
             <InfoArea>
                 <UserName>{data.name}</UserName>

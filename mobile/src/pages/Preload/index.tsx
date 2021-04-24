@@ -36,7 +36,7 @@ const Preload: React.FC = () => {
 
     return(
         <Container>
-            <Image style={styles.imagem} source={require('../../../assets/TheBarberLogo.svg')} />
+            <Image style={styles.imagem} source={require('../../assets/TheBarberLogo.png')} />
             <TexLogo>The Barber</TexLogo>
             <LoadingIcon size="large" color="#757575"/>
         </Container>

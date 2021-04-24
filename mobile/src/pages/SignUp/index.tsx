@@ -63,7 +63,7 @@ const SignUp: React.FC = () => {
 
     return (
         <Container>
-            <Image style={styles.imagem} source={require('../../../assets/TheBarberLogo.svg')} />
+            <Image style={styles.imagem} source={require('../../assets/TheBarberLogo.png')} />
 
             <InputArea>
                 <Input
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     imagem: {
         width: 141,
         height: 89,
-        marginBottom: 10
+        marginBottom: 5
     },
     messageTxt: {
         color: '#757575'
