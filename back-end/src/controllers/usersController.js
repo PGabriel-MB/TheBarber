@@ -12,4 +12,10 @@ router.get('/', async (req, res) => {
     res.send({ users });
 });
 
+router.get('/:id', async (req, res) => {
+    const _id = req.params.id;
+    const user = await User.findOne({ _id });
+    res.send({ user });
+});
+
 module.exports = app => app.use('/users', router);
