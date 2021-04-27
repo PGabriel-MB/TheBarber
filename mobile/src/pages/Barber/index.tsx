@@ -3,23 +3,30 @@ import { UserService } from "../../api/services/UserService";
 import { Container, TexLogo} from "./styles";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
-class Barber extends React.Component {
+interface iProps {}
+
+interface iState {
+    id: string,
+    name: string,
+    ranking: number
+}
+
+class Barber extends React.Component<iProps, iState> {
     request = new UserService();
     navigation = useNavigation();
     route = useRoute();
 
-    constructor(props: any) {
+    constructor(props: iProps) {
         super(props);
         this.state = {
-            userInfo: {
-                id: this.route.params.id,
-                name: this.route.params.name
-            }
+            id: '',
+            name: '',
+            ranking: 0
         }
     }
 
     componentDidMount() {
-        this.request.getUserById()
+        this.request.getUserById(this.state.id)
     }
 
     render() {
