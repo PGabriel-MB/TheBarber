@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { UserService } from "../../api/services/UserService";
 import { Container, TexLogo} from "./styles";
 import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
@@ -19,30 +19,37 @@ type BarberRouteProp = {
     }
 }
 
-class Barber extends React.Component<iProps, iState> {
-    request = new UserService();
-    navigation = useNavigation();
-    route = useRoute<RouteProp<BarberRouteProp, 'Barber'>>();
+const Barber = () => {
+    const request = new UserService();
+    const navigation = useNavigation();
+    const route = useRoute<RouteProp<BarberRouteProp, 'Barber'>>();
 
-    constructor(props: iProps) {
-        super(props);
-        this.state = {
-            id: this.route.params.id,
-            name: this.route.params.name,
-            ranking: this.route.params.ranking
-        }
+    const [userInfo, setUserInfo] = useState({
+        id: route.params.id,
+        name: route.params.name,
+        ranking: route.params.ranking
+    });
+    
+    const getBarberInfo = () => {
+        request.getUserById(userInfo.id)
+            .then(async res => {
+                setUserInfo({...await res.data});
+                console.log(await userInfo)
+            })
+            .catch(async err => {
+                console.log(await err)
+                alert('Houve algum erro na obtenção dos dados!');
+            });
     }
 
-    componentDidMount() {
-        //this.request.getUserById(this.state.id)
-    }
+    useEffect(() => {
+        getBarberInfo();
+    },[]);
 
-    render() {
-        return (
-            <Container>
-                <TexLogo>Eu sou {this.state.name} </TexLogo>
-            </Container>
-        )
-    }
+    return (
+        <Container>
+            <TexLogo>Eu sou {userInfo.name} </TexLogo>
+        </Container>
+    )
 }
 export default Barber;
