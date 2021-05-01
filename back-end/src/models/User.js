@@ -1,6 +1,8 @@
 const mongoose = require('../database/index');
 const bcrypt = require('bcryptjs');
 
+const ObjectId = mongoose.Schema.Types.ObjectId;
+
 const UserSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -11,11 +13,29 @@ const UserSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    barber: {
+    serviceProvider: {
         type: Boolean,
         default: false,
         select: true
     },
+    stars: {
+        type: Number,
+        min: 0,
+        max: 5,
+        default: 0
+    },
+    birthDate: {
+        type: Date,
+        required: true
+    },
+    providerServices:[{
+        type: ObjectId,
+        ref: 'service'
+    }],
+    comments: [{
+        type: ObjectId,
+        ref: 'comment'
+    }],
     password: {
         type: String,
         required: true,
