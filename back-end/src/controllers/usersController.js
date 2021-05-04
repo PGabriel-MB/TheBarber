@@ -18,4 +18,19 @@ router.get('/:id', async (req, res) => {
     res.send({ user });
 });
 
+router.patch('/:id', async (req, res) => {
+    try {
+        const _id = req.params.id;
+        const user_updated = await User.findOneAndUpdate(
+            { _id },
+            { ...re.body, updated: new Date() },
+            { runValidators: true }
+        );
+        
+        res.send({ user_updated });
+    } catch (err) {
+        return res.status(400).send({ error: 'Request failed!', err })
+    }
+});
+
 module.exports = app => app.use('/users', router);

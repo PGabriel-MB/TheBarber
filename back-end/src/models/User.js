@@ -28,7 +28,10 @@ const UserSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    providerServices:[{
+    phones: [{
+        type: String
+    }],
+    services:[{
         type: ObjectId,
         ref: 'service'
     }],
