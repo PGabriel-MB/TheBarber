@@ -14,5 +14,6 @@ app.listen(3000, () => {
 
 require('./controllers/authController')(app);
 require('./controllers/usersController')(app);
+require('./controllers/serviceController')(app);
 
 module.exports = app;
