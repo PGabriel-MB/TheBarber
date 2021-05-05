@@ -23,7 +23,7 @@ router.patch('/:id', async (req, res) => {
         const _id = req.params.id;
         const user_updated = await User.findOneAndUpdate(
             { _id },
-            { ...re.body, updated: new Date() },
+            { ...req.body, updated: new Date() },
             { runValidators: true }
         );
         
