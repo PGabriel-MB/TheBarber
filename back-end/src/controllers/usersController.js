@@ -19,6 +19,9 @@ router.get('/:id', async (req, res) => {
 });
 
 router.patch('/:id', async (req, res) => {
+    /**
+     *  Make the update of the user
+     */
     try {
         const _id = req.params.id;
         const user_updated = await User.findOneAndUpdate(
