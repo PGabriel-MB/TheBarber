@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { UserService } from "../../api/services/UserService";
-import { Container, TexLogo} from "./styles";
+import { Container, TextLogo} from "./styles";
 import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
 
 interface iProps {}
@@ -48,7 +48,7 @@ const Barber = () => {
 
     return (
         <Container>
-            <TexLogo>Eu sou {userInfo.name} </TexLogo>
+            <TextLogo>Eu sou {userInfo.name} </TextLogo>
         </Container>
     )
 }

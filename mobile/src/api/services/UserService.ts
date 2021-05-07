@@ -18,4 +18,8 @@ export class UserService {
     getUserById = async (id: string) => {
         return this.constanteService.get(`users/${id}`, { headers: { 'Authorization': await this.utilService.buildHeader() }});
     }
+
+    getUserWithServicesById = async (id: string) => {
+        return this.constanteService.get(`users/services/${id}`, { headers: { 'Authorization': await this.utilService.buildHeader() }});
+    }
 }

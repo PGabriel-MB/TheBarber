@@ -2,6 +2,7 @@ const express = require('express');
 
 const authMiddlware = require('../middleware/auth');
 const User = require('../models/User');
+const Service = require('../models/Service');
 
 const router = express.Router();
 
@@ -16,6 +17,13 @@ router.get('/:id', async (req, res) => {
     const _id = req.params.id;
     const user = await User.findOne({ _id });
     res.send({ user });
+});
+
+router.get('/services/:id', async (req, res) => {
+    const _id = req.params.id;
+    const user = await User.findOne({ _id });
+    const services = await Service.find({ serviceProvider: _id });
+    res.send({ user, services });
 });
 
 router.patch('/:id', async (req, res) => {

@@ -7,7 +7,7 @@ export const Container = styled.SafeAreaView`
     align-items: center;  
 `;
 
-export const TexLogo = styled.Text`
+export const TextLogo = styled.Text`
     color: #fff;
     font-style: italic;
     font-size: 40px
