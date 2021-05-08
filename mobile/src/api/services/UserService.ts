@@ -1,5 +1,6 @@
 import ConstantService from "./ConstantService";
 import { UtilsService } from "./UtilsService";
+import { Service } from "../models/interfaces/Service";
 
 export class UserService {
     private constanteService = ConstantService;
@@ -16,7 +17,16 @@ export class UserService {
     }
 
     getUserById = async (id: string) => {
-        return this.constanteService.get(`users/${id}`, { headers: { 'Authorization': await this.utilService.buildHeader() }});
+        return this.constanteService.get<{
+            user: {
+                serviceProvider: boolean,
+                stars: number,
+                phones: Array<any>,
+                _id: string,
+                name: string
+            },
+            services: Array<Service>
+        }>(`users/${id}`, { headers: { 'Authorization': await this.utilService.buildHeader() }});
     }
 
     getUserWithFullDataById = async (id: string) => {

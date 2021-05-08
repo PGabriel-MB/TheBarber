@@ -11,7 +11,8 @@ interface iProps {}
 interface iState {
     id: string,
     name: string,
-    ranking: number
+    ranking: number,
+    services: Array<Service>
 }
 
 type BarberRouteProp = {
@@ -22,12 +23,12 @@ type BarberRouteProp = {
     }
 }
 
-const Barber = () => {
+const Barber: React.FunctionComponent = () => {
     const request = new UserService();
     const navigation = useNavigation();
     const route = useRoute<RouteProp<BarberRouteProp, 'Barber'>>();
 
-    const [userInfo, setUserInfo] = useState({
+    const [userInfo, setUserInfo] = useState<iState>({
         id: route.params.id,
         name: route.params.name,
         ranking: route.params.ranking,
