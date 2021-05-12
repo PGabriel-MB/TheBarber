@@ -17,6 +17,10 @@ export class UserService {
     }
 
     getUserById = async (id: string) => {
+        return this.constanteService.get(`users/${id}`, { headers: { 'Authorization': await this.utilService.buildHeader() }});
+    }
+
+    getUserWithFullDataById = async (id: string) => {
         return this.constanteService.get<{
             user: {
                 serviceProvider: boolean,
@@ -26,10 +30,6 @@ export class UserService {
                 name: string
             },
             services: Array<Service>
-        }>(`users/${id}`, { headers: { 'Authorization': await this.utilService.buildHeader() }});
-    }
-
-    getUserWithFullDataById = async (id: string) => {
-        return this.constanteService.get(`users/services/${id}`, { headers: { 'Authorization': await this.utilService.buildHeader() }});
+        }>(`users/services/${id}`, { headers: { 'Authorization': await this.utilService.buildHeader() }});
     }
 }

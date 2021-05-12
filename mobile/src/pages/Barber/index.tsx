@@ -9,17 +9,18 @@ import { Service } from "../../api/models/interfaces/Service";
 interface iProps {}
 
 interface iState {
-    id: string,
+    _id: string,
     name: string,
-    ranking: number,
+    stars: number,
     services: Array<Service>
+    phones: Array<any>
 }
 
 type BarberRouteProp = {
     Barber: {
         id: string,
         name: string,
-        ranking: number
+        stars: number
     }
 }
 
@@ -29,14 +30,17 @@ const Barber: React.FunctionComponent = () => {
     const route = useRoute<RouteProp<BarberRouteProp, 'Barber'>>();
 
     const [userInfo, setUserInfo] = useState<iState>({
-        id: route.params.id,
+        _id: route.params.id,
         name: route.params.name,
-        ranking: route.params.ranking,
+        stars: route.params.stars || 0,
+        phones: [],
         services: []
     });
+    const [loading, setLoading] = useState<boolean>(false)
     
     const getBarberInfo = () => {
-        request.getUserById(userInfo.id)
+        setLoading(true);
+        request.getUserWithFullDataById(userInfo._id)
             .then(async res => {
                 setUserInfo({...await res.data.user, services: res.data.services});
                 console.log(await userInfo)
@@ -44,7 +48,7 @@ const Barber: React.FunctionComponent = () => {
             .catch(async err => {
                 console.log(await err)
                 alert('Houve algum erro na obtenção dos dados!');
-            });
+            }).finally(() => setLoading(false));
     }
 
     useEffect(() => {
