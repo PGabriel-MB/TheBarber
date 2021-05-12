@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
 
-import { Container, TextLogo} from "./styles";
+import {
+    Container,
+    TextLogo,
+    Scroller
+} from "./styles";
 import { UserService } from "../../api/services/UserService";
 import { Service } from "../../api/models/interfaces/Service";
 
@@ -57,7 +61,9 @@ const Barber: React.FunctionComponent = () => {
 
     return (
         <Container>
-            <TextLogo>Eu sou {userInfo.name} </TextLogo>
+            <Scroller>
+
+            </Scroller>
         </Container>
     )
 }

@@ -12,3 +12,5 @@ export const TextLogo = styled.Text`
     font-style: italic;
     font-size: 40px
 `;
+
+export const Scroller = styled.ScrollView``;
