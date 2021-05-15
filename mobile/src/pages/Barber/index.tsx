@@ -22,8 +22,6 @@ import { Service } from "../../api/models/interfaces/Service";
 import { Star } from "../../components/Stars";
 
 
-interface iProps {}
-
 interface iState {
     _id: string,
     name: string,
