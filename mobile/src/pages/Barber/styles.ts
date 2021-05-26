@@ -5,7 +5,7 @@ export const Container = styled.SafeAreaView`
     background-color: #1C1C1C;
     flex: 1;
     justify-content: center;
-    align-items: center;  
+    align-items: center;
 `;
 
 export const TextLogo = styled.Text`
@@ -22,19 +22,21 @@ export const FakeSwiper = styled.View`
     flex: 1;
     background-color: #1C1C1C;
     height: 240px;
-    min-height: 400px;
+    width: 100%;
 `;
 
 export const PageBody = styled.View`
     background-color: #ffffff;
     border-top-left-radius: 50px;
     margin-top: -50px;
+    min-height: 400px;
+    min-width: 400px;
 `;
 
 export const UserInfoArea = styled.View``;
 
 export const UserAvatar = styled.Text`
-    font-size: 30px;
+    font-size: 50px;
     color: red;
 `;
 

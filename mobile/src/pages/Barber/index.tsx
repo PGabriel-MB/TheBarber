@@ -57,7 +57,6 @@ const Barber: React.FunctionComponent = () => {
         request.getUserWithFullDataById(userInfo._id)
             .then(async res => {
                 setUserInfo({...await res.data.user, services: res.data.services});
-                console.log(await userInfo)
             })
             .catch(async err => {
                 console.log(await err)
@@ -75,9 +74,9 @@ const Barber: React.FunctionComponent = () => {
                 <FakeSwiper></FakeSwiper>
                 <PageBody>
                     <UserInfoArea>
-                        <UserAvatar></UserAvatar>
+                        <UserAvatar>{userInfo.name[0]+ userInfo.name[1]}</UserAvatar>
                         <UserInfo>
-                            <UserInfoName>{userInfo.name[0]+ userInfo.name[1]}</UserInfoName>
+                            <UserInfoName>{userInfo.name}</UserInfoName>
                             <Star ranking={userInfo.stars} showRankingNumber={true} />
                         </UserInfo>
                         <UserFavButton>
