@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 import {
     Container,
-    TextLogo,
     Scroller,
     FakeSwiper,
     PageBody,
@@ -14,7 +13,8 @@ import {
     UserInfo,
     UserInfoName,
     UserFavButton,
-    ServiceArea
+    ServiceArea,
+    BackButton
 } from "./styles";
 
 import { UserService } from "../../api/services/UserService";
@@ -68,6 +68,10 @@ const Barber: React.FunctionComponent = () => {
         getBarberInfo();
     },[]);
 
+    const handleBackButton = () => {
+
+    }
+
     return (
         <Container>
             <Scroller>
@@ -88,6 +92,9 @@ const Barber: React.FunctionComponent = () => {
                     </ServiceArea>
                 </PageBody>
             </Scroller>
+            <BackButton onPress={handleBackButton}>
+                <FontAwesomeIcon icon={faChevronLeft} size={25} style={{color: '#ffffff'}} />
+            </BackButton>
         </Container>
     )
 }
