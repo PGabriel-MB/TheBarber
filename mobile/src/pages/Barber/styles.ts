@@ -33,11 +33,21 @@ export const PageBody = styled.View`
     min-width: 400px;
 `;
 
-export const UserInfoArea = styled.View``;
+export const UserInfoArea = styled.View`
+    flex-direction: row;
+`;
 
 export const UserAvatar = styled.Text`
     font-size: 50px;
     color: red;
+    background-color: #d4d1c9;
+    border-radius: 20px;
+    padding: 10px;
+    margin-left: 30px;
+    margin-right: 20px;
+    border-width: 4px;
+    border-color: #ffffff;
+    box-shadow: 3px 7px 10px 3px black;
 `;
 
 export const UserInfo = styled.View``;
