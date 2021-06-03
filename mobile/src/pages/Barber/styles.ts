@@ -28,7 +28,7 @@ export const PageBody = styled.View`
     background-color: #ffffff;
     border-top-left-radius: 50px;
     margin-top: -50px;
-    min-height: 400px;
+    min-height: 490px;
     min-width: 100%;
 `;
 
