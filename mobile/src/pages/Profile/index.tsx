@@ -2,7 +2,6 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
-
 import {
     Container,
     Scroller,
@@ -16,13 +15,14 @@ import {
     OptionsArea,
     BackButton
 } from "./styles";
-import {useUser} from '../../contexts/UserContext'
+import { useUser } from '../../contexts/UserContext'
+
 
 const Profile: React.FunctionComponent = () => {
     const { state } = useUser();
 
     const handleBackButton = () => {
-        console.log(state)
+        
     }
 
     return (

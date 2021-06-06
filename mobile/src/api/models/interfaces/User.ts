@@ -1,5 +1,12 @@
 export interface User {
-    _id: string;
-    name: string;
-    email: string;
+    _id: String;
+    name?: String;
+    email?: String;
+    created?: Date;
+    phones?: String[];
+    serviceProvider?: boolean;
+    services?: [];
+    stars?: number;
+    updated?: Date;
+    comments?: String;
 }
