@@ -1,12 +1,14 @@
+import { User } from "../api/models/interfaces/User";
+
 export const initialState = {
     favorites: [],
     appointments: [],
     user: null
 }
 
-type Action = { type: 'setUser' } | { type: 'clearUser' };
+export type Action = { type: 'setUser', payload: User  } | { type: 'clearUser' };
 
-export const UserReducer = (state: any, action: any) => {
+export const UserReducer = (state: any, action: Action) => {
     switch(action.type) {
         case 'setUser':
             return {...state, user: action.payload }

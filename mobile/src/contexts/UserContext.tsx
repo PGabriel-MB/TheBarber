@@ -1,10 +1,12 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { User } from "../api/models/interfaces/User";
-import { initialState, UserReducer } from "../reducers/UserReducer";
+import { initialState, UserReducer, Action } from "../reducers/UserReducer";
+
+type Dispatch = (action: Action ) => void;
 
 export const UserContext = createContext<{
     state: typeof initialState,
-    dispatch: React.Dispatch<any>
+    dispatch: Dispatch | React.Dispatch<any>
 }>({ state: initialState, dispatch: () => null});
 
 const UserProvider: React.FC =  ({ children }) => {
