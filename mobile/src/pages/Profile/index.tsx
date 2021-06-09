@@ -20,6 +20,8 @@ import { useUser } from '../../contexts/UserContext'
 
 const Profile: React.FunctionComponent = () => {
     const { state } = useUser();
+    const { user } = state;
+    const tempNameInitials: string = user.name[0] + user.name[1];
 
     const handleBackButton = () => {
         
@@ -31,10 +33,10 @@ const Profile: React.FunctionComponent = () => {
                 <FakeSwiper />
                 <PageBody>
                     <UserInfoArea>
-                        <UserAvatar>NO</UserAvatar>
+                        <UserAvatar>{tempNameInitials.toUpperCase()}</UserAvatar>
                         <UserInfo>
-                            <UserInfoName>Joseph Climber</UserInfoName>
-                            <UserInfoEmail>josephClimber@gmail.com</UserInfoEmail>
+                            <UserInfoName>{user.name}</UserInfoName>
+                            <UserInfoEmail>{user.email}</UserInfoEmail>
                         </UserInfo>
                     </UserInfoArea>
                     <OptionsArea>
