@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { FlatList } from "react-native";
 
 import {
     Container,
@@ -16,16 +17,48 @@ import {
     BackButton
 } from "./styles";
 import { useUser } from '../../contexts/UserContext'
+import { ItemList, ItemListProps } from "../../components/ItemList";
+import { useNavigation } from "@react-navigation/native";
 
 
 const Profile: React.FunctionComponent = () => {
     const { state } = useUser();
     const { user } = state;
     const tempNameInitials: string = user.name[0] + user.name[1];
+    const navigation = useNavigation();
 
     const handleBackButton = () => {
         
     }
+
+    const DATA = [
+        {
+            key: 0,
+            onPress() {
+                // Screen to User data
+                // navigation.navigate('')
+            },
+            description: 'Dados Pessoais'
+        },
+        {
+            key: 1,
+            onPress() {
+                // Screen to User  Expenses
+                // navigation.navigate('')
+            },
+            description: 'Gastos Realizados'
+        },
+        {
+            key: 0,
+            onPress() {
+                // Screen to Barbershop data
+                // navigation.navigate('') 
+            },
+            description: 'Dados da Barbearia'
+        }
+    ];
+
+    const renderItem = ( item: ItemListProps ) => <ItemList {...item} />
 
     return (
         <Container>
@@ -40,7 +73,10 @@ const Profile: React.FunctionComponent = () => {
                         </UserInfo>
                     </UserInfoArea>
                     <OptionsArea>
-
+                        <FlatList
+                            data={DATA}
+                            renderItem={renderItem}
+                        />
                     </OptionsArea>
                 </PageBody>
             </Scroller>
