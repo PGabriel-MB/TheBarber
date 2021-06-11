@@ -72,7 +72,9 @@ export const UserInfoEmail = styled.Text`
     margin-bottom: 10px;
 `;
 
-export const OptionsArea = styled.View``;
+export const OptionsArea = styled.View`
+    margin-top: 40px;
+`;
 
 export const TestimonialArea = styled.View``;
 

@@ -5,15 +5,15 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 
 const Buttom = styled.TouchableOpacity`
-    padding: 10px;
+    padding: 10px 20px;
     flex-direction: row;
-    justfy-content: space-between;
+    justify-content: space-between;
 `;
 
 const Text = styled.Text`
     color: #0A0A0A;
     font-size: 14px;
-    padding-left: 20px;
+    padding-left: 10px;
 `;
 
 export interface ItemListProps {
@@ -25,7 +25,7 @@ export const ItemList = (props: ItemListProps) => {
     return (
         <Buttom onPress={props.onPress}>
             <Text>{props.description}</Text>
-            <FontAwesomeIcon icon={faChevronRight} size={100} />
+            <FontAwesomeIcon icon={faChevronRight} size={18} />
         </Buttom>
     );
 } 

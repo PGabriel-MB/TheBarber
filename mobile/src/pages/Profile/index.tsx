@@ -49,7 +49,7 @@ const Profile: React.FunctionComponent = () => {
             description: 'Gastos Realizados'
         },
         {
-            key: 0,
+            key: 3,
             onPress() {
                 // Screen to Barbershop data
                 // navigation.navigate('') 
@@ -57,8 +57,6 @@ const Profile: React.FunctionComponent = () => {
             description: 'Dados da Barbearia'
         }
     ];
-
-    const renderItem = ( item: ItemListProps ) => <ItemList {...item} />
 
     return (
         <Container>
@@ -73,10 +71,13 @@ const Profile: React.FunctionComponent = () => {
                         </UserInfo>
                     </UserInfoArea>
                     <OptionsArea>
-                        <FlatList
-                            data={DATA}
-                            renderItem={renderItem}
-                        />
+                        {
+                            DATA.map(item => <ItemList 
+                                onPress={item.onPress}
+                                description={item.description}
+                                key={item.key}
+                            />)
+                        }
                     </OptionsArea>
                 </PageBody>
             </Scroller>
