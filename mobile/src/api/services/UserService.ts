@@ -7,6 +7,8 @@ export class UserService {
     private utilService = new UtilsService();
 
     getUsers = async (onlyBarbers = false) => {
+        console.log('AQUI ZÉ', await this.utilService.buildHeader())
+
         if(onlyBarbers)
             return this.constanteService.post('/users/', { onlyBarbers });
                 

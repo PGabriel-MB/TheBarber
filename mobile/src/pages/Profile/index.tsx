@@ -28,7 +28,7 @@ const Profile: React.FunctionComponent = () => {
     const navigation = useNavigation();
 
     const handleBackButton = () => {
-        
+        console.log(user);
     }
 
     const DATA = [

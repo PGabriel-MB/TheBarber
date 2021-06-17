@@ -41,7 +41,10 @@ const SignIn: React.FC = () => {
                         routes: [{name: 'MainTab'}]
                     });
                 })
-                .catch(() => alert('E-mail e/ou senha inválidos!'));
+                .catch(err => {
+                    alert('E-mail e/ou senha inválidos!')
+                    console.log(err)
+                });
         } else {
             alert('Verifique todos os campos!');
         }
