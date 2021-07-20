@@ -63,7 +63,7 @@ const Home: React.FC = () => {
                 const newUsers: User[] = [];
                 users.map((user: User) => (newUsers.push(user)));
                 setList(users);
-            }).catch(err => console.log('erro da preula',err));
+            }).catch(err => console.log('Data recovery error', err));
 
         setLoading(false);
     }

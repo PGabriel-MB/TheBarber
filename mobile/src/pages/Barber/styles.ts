@@ -7,12 +7,6 @@ export const Container = styled.SafeAreaView`
     align-items: center;
 `;
 
-export const TextLogo = styled.Text`
-    color: #fff;
-    font-style: italic;
-    font-size: 40px
-`;
-
 export const Scroller = styled.ScrollView`
     flex: 1;
 `;
@@ -29,8 +23,9 @@ export const PageBody = styled.View`
     border-top-left-radius: 50px;
     margin-top: -50px;
     min-height: 490px;
+    height: 620px;
     min-width: 100%;
-`;
+`;// temporarily the height measurement will be like this
 
 export const UserInfoArea = styled.View`
     flex-direction: row;
@@ -74,7 +69,15 @@ export const UserFavButton = styled.TouchableOpacity`
     margin-left: 20px;
 `;
 
-export const ServiceArea = styled.View``;
+export const ServiceArea = styled.View`
+    margin: 50px 30px 0 30px;
+`;
+
+export const ServiceText = styled.Text`
+    color: #0A0A0A;
+    font-weight: bold;
+    font-size: 22px
+`;
 
 export const TestimonialArea = styled.View``;
 

@@ -14,6 +14,7 @@ import {
     UserInfoName,
     UserFavButton,
     ServiceArea,
+    ServiceText,
     BackButton
 } from "./styles";
 
@@ -59,7 +60,7 @@ const Barber: React.FunctionComponent = () => {
                 setUserInfo({...await res.data.user, services: res.data.services});
             })
             .catch(async err => {
-                console.log(await err)
+                console.log('Data recovery error', await err)
                 alert('Houve algum erro na obtenção dos dados!');
             }).finally(() => setLoading(false));
     }
@@ -88,7 +89,7 @@ const Barber: React.FunctionComponent = () => {
                         </UserFavButton>
                     </UserInfoArea>
                     <ServiceArea>
-
+                        <ServiceText>Lista de Serviços</ServiceText>
                     </ServiceArea>
                 </PageBody>
             </Scroller>
