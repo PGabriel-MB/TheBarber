@@ -1,7 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import { FlatList } from "react-native";
 
 import {
     Container,
@@ -17,7 +16,7 @@ import {
     BackButton
 } from "./styles";
 import { useUser } from '../../contexts/UserContext'
-import { ItemList, ItemListProps } from "../../components/ItemList";
+import { ItemList } from "../../components/ItemList";
 import { useNavigation } from "@react-navigation/native";
 
 

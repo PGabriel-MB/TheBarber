@@ -21,6 +21,7 @@ import {
 import { UserService } from "../../api/services/UserService";
 import { Service } from "../../api/models/interfaces/Service";
 import { Star } from "../../components/Stars";
+import { ServiceList } from "../../components/ServiceList";
 
 
 interface iState {
@@ -73,6 +74,24 @@ const Barber: React.FunctionComponent = () => {
 
     }
 
+    const mockedListData = [
+        {
+            name:  'Corte Simples',
+            price: 25.1,
+            serviceId: 'khasf87sifabs09aw09a8fa'
+        },
+        {
+            name:  'Corte Mediano',
+            price: 30.5,
+            serviceId: 'khasf87sifabs09aw09a8fa'
+        },
+        {
+            name:  'Corte Avançado',
+            price: 33.87,
+            serviceId: 'khasf87sifabs09aw09a8fa'
+        }
+    ];
+
     return (
         <Container>
             <Scroller>
@@ -90,6 +109,7 @@ const Barber: React.FunctionComponent = () => {
                     </UserInfoArea>
                     <ServiceArea>
                         <ServiceText>Lista de Serviços</ServiceText>
+                        <ServiceList serviceList={mockedListData} />
                     </ServiceArea>
                 </PageBody>
             </Scroller>
