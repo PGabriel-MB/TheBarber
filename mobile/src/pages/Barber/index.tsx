@@ -89,6 +89,51 @@ const Barber: React.FunctionComponent = () => {
             name:  'Corte Avançado',
             price: 33.87,
             serviceId: 'khasf87sifabs09aw09a8fa'
+        },
+        {
+            name:  'Corte Simples',
+            price: 25.1,
+            serviceId: 'khasf87sifabs09aw09a8fa'
+        },
+        {
+            name:  'Corte Mediano',
+            price: 30.5,
+            serviceId: 'khasf87sifabs09aw09a8fa'
+        },
+        {
+            name:  'Corte Avançado',
+            price: 33.87,
+            serviceId: 'khasf87sifabs09aw09a8fa'
+        },
+        {
+            name:  'Corte Simples',
+            price: 25.1,
+            serviceId: 'khasf87sifabs09aw09a8fa'
+        },
+        {
+            name:  'Corte Mediano',
+            price: 30.5,
+            serviceId: 'khasf87sifabs09aw09a8fa'
+        },
+        {
+            name:  'Corte Avançado',
+            price: 33.87,
+            serviceId: 'khasf87sifabs09aw09a8fa'
+        },
+        {
+            name:  'Corte Simples',
+            price: 25.1,
+            serviceId: 'khasf87sifabs09aw09a8fa'
+        },
+        {
+            name:  'Corte Mediano',
+            price: 30.5,
+            serviceId: 'khasf87sifabs09aw09a8fa'
+        },
+        {
+            name:  'Corte Avançado',
+            price: 33.87,
+            serviceId: 'khasf87sifabs09aw09a8fa'
         }
     ];
 

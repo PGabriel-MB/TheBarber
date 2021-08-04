@@ -22,7 +22,7 @@ export const PageBody = styled.View`
     background-color: #ffffff;
     border-top-left-radius: 50px;
     margin-top: -50px;
-    min-height: 490px;
+    min-height: 100%px;
     height: 620px;
     min-width: 100%;
 `;// temporarily the height measurement will be like this

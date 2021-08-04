@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 
 import { ServiceItem, ServiceItemProps } from "./ServiceItem";
 
-const ListScroll = styled.ScrollView`
+const ListScroll = styled.View`
     margin-top: 40px;
 `;
 
