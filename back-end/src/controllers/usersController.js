@@ -20,6 +20,9 @@ router.get('/:id', async (req, res) => {
 });
 
 router.get('/services/:id', async (req, res) => {
+    /**
+     * Here comes the user id to return all of de Service that he can offer
+     */
     const _id = req.params.id;
     const user = await User.findOne({ _id });
     const services = await Service.find({ serviceProvider: _id });

@@ -16,6 +16,10 @@ const Address = new mongoose.Schema({
         type: String,
         required: false,
         maxLength: 200,
+    },
+    typeAddress: {
+        type: String,
+        enum: ['RESIDENCIAL', 'COMMERCIAL', 'BOTH']
     }
 });
 
