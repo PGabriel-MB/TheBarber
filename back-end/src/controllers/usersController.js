@@ -29,6 +29,11 @@ router.get('/services/:id', async (req, res) => {
     res.send({ user, services });
 });
 
+router.get('/address/:id', (req, res) => {
+    const { id } = req.params;
+    const userAddress
+});
+
 router.patch('/:id', async (req, res) => {
     /**
      *  Make the update of the user
