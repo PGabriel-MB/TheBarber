@@ -1,8 +1,6 @@
 const express = require('express');
 
 const authMiddlware = require('../middleware/auth');
-const User = require('../models/User');
-const Service = require('../models/Service');
 const Address = require('../models/Address');
 
 const router = express.Router();
@@ -15,6 +13,17 @@ router.get('/:id', async (req, res) => {
     res.send({ address });
 });
 
-router.post('/\')
+router.post('/', async (req, res) => {
+    /**
+     * Creates a new Address
+     * this endpoint will probably be less used
+     */
+    try {
+        const address =  await Address.create(req.body);
+        return res.send(address);
+    } catch (err) {
+        return res.status(400).send({ error: 'Request Failed', err });
+    }
+});
 
 module.exports = app => app.use('/addresses', router)
