@@ -3,6 +3,7 @@ const express = require('express');
 const authMiddlware = require('../middleware/auth');
 const User = require('../models/User');
 const Service = require('../models/Service');
+const Address = require('../models/Address');
 
 const router = express.Router();
 
@@ -27,11 +28,6 @@ router.get('/services/:id', async (req, res) => {
     const user = await User.findOne({ _id });
     const services = await Service.find({ serviceProvider: _id });
     res.send({ user, services });
-});
-
-router.get('/address/:id', (req, res) => {
-    const { id } = req.params;
-    const userAddress
 });
 
 router.patch('/:id', async (req, res) => {
