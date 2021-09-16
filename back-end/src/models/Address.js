@@ -1,6 +1,6 @@
 const mongoose = require('../database/index');
 
-const Address = new mongoose.Schema({
+const AddressSchema = new mongoose.Schema({
     fullAddress: {
         type: String,
         required: true
@@ -23,6 +23,6 @@ const Address = new mongoose.Schema({
     }
 });
 
-const Address = mongoose.model('address', Address);
+const Address = mongoose.model('address', AddressSchema);
 
 module.exports = Address;
