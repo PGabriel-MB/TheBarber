@@ -23,6 +23,16 @@ type PersonalDataRouteProp = {
     }
 }
 
+interface iPD {
+    _id: string,
+    name: string,
+    email: string,
+    phones: Array<any>,
+    serviceProvider: boolean,
+    birthDate: Date,
+    address: object
+}
+
 const PersonalData: FC = () => {
     const request = new UserService();
     const navigation = useNavigation();

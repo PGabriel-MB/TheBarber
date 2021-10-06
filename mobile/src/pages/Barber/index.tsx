@@ -28,7 +28,7 @@ interface iState {
     _id: string,
     name: string,
     stars: number,
-    services: Array<Service>
+    services: Array<Service>,
     phones: Array<any>
 }
 
