@@ -35,7 +35,7 @@ const Profile: React.FunctionComponent = () => {
             key: 0,
             onPress() {
                 // Screen to User data
-                // navigation.navigate('')
+                navigation.navigate('PersonalData', { user });
             },
             description: 'Dados Pessoais'
         },

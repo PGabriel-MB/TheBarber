@@ -29,7 +29,7 @@ export const PageBody = styled.View`
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     margin-top: -50px;
-    min-height: 490px;
+    min-height: 80%;
     min-width: 100%;
 `;
 

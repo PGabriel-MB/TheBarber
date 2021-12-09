@@ -43,7 +43,11 @@ const PersonalData: FC = () => {
     // iniciando desenvolvimento de itens visuais na tela
 
     return (
-        <></>
+        <Container>
+            <Header>
+                <UserInfoTitle>Dados Pessoais</UserInfoTitle>
+            </Header>
+        </Container>
     )
 }
 
