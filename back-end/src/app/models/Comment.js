@@ -1,4 +1,4 @@
-const mongoose = require('../database/index');
+const mongoose = require('../../database/index');
 
 const CommentSchema = new mongoose.Schema({
     user: {
