@@ -8,6 +8,10 @@ const CommentSchema = new mongoose.Schema({
     comment: {
         type: String
     },
+    serviceProvider: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    },
     created: {
         type: Date,
         default: Date.now
