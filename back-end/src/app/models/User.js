@@ -13,6 +13,10 @@ const UserSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    photo: {
+        type: String,
+        required: false
+    },
     serviceProvider: {
         type: Boolean,
         default: false,

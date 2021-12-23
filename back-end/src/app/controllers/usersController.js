@@ -61,20 +61,39 @@ router.post('/address/:userId',  async(req, res) => {
 
 router.patch('/:id', async (req, res) => {
     /**
-     *  Make the update of the user
+     *  It does the user update
      */
     try {
         const _id = req.params.id;
+
+        const address = req.body.address;
+        req.body.address = undefined;
+        
         const user_updated = await User.findOneAndUpdate(
             { _id },
             { ...req.body, updated: new Date() },
             { runValidators: true }
         );
-        
+            
+        if (address) {
+            let newOrUpdatedAddress = null;
+
+            if (address.id) {
+                newOrUpdatedAddress = await Address.findOneAndUpdate(
+                    { _id: address.id },
+                    address,
+                    { runValidators: true }
+                );
+            } else
+                newOrUpdatedAddress = await Address.create(address)
+
+            user_updated.address = newOrUpdatedAddress;
+        }
+
         res.send({ user_updated });
     } catch (err) {
         return res.status(400).send({ error: 'Request failed!', err })
     }
 });
 
-module.exports = app => app.use('/users', router);
+module.exports = app => app.use('/user', router);
