@@ -64,6 +64,7 @@ router.patch('/:id', async (req, res) => {
      *  It does the user update
      */
     try {
+        let newOrUpdatedAddress = null;
         const _id = req.params.id;
 
         const address = req.body.address;
@@ -74,22 +75,22 @@ router.patch('/:id', async (req, res) => {
             { ...req.body, updated: new Date() },
             { runValidators: true }
         );
-            
+        
         if (address) {
-            let newOrUpdatedAddress = null;
-
+            
             if (address.id) {
                 newOrUpdatedAddress = await Address.findOneAndUpdate(
                     { _id: address.id },
                     address,
                     { runValidators: true }
                 );
-            } else
+            } else {
                 newOrUpdatedAddress = await Address.create(address)
-
-            user_updated.address = newOrUpdatedAddress;
+                user_updated.address = newOrUpdatedAddress._id;
+            }
+            
         }
-
+            
         res.send({ user_updated });
     } catch (err) {
         return res.status(400).send({ error: 'Request failed!', err })
