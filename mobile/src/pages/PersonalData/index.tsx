@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useState, useEffect, useContext } from "react";
 import {
     useNavigation,
     useRoute,
@@ -37,7 +37,8 @@ const PersonalData: FC = () => {
     const request = new UserService();
     const navigation = useNavigation();
     const route = useRoute<RouteProp<PersonalDataRouteProp, 'User'>>();
-    const data = React.useContext(UserContext);
+    const { state: data } = useContext(UserContext);
+    const tempNameInitials: string = data.user.name[0] + data.user.name[1];
 
     // definindo contexto de dados do usuario
     // iniciando desenvolvimento de itens visuais na tela
@@ -46,6 +47,7 @@ const PersonalData: FC = () => {
         <Container>
             <Header>
                 <UserInfoTitle>Dados Pessoais</UserInfoTitle>
+                <UserAvatar>{tempNameInitials}</UserAvatar>
             </Header>
         </Container>
     )

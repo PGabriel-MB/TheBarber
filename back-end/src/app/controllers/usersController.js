@@ -97,4 +97,4 @@ router.patch('/:id', async (req, res) => {
     }
 });
 
-module.exports = app => app.use('/user', router);
+module.exports = app => app.use('/users', router);

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { RefreshControl } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import * as Permissions from "expo-permissions";
 import * as Location from "expo-location";
 
 import {
@@ -30,8 +29,6 @@ import { User } from "../../api/models/interfaces/User";
 const Home: React.FC = () => {
     const navigation = useNavigation();
     const userService = new UserService();
-
-    const [permission, askPermission] = Permissions.usePermissions(Permissions.LOCATION, { ask: true });
     
     const [locationText, setLocationText] = useState('');
     const [coords, setCoords] = useState({});
@@ -40,9 +37,9 @@ const Home: React.FC = () => {
     const [refreshing, setRefreshing] = useState<boolean>(false);
     
     const handleLocationFinder = async () => {
-        await askPermission();
+        const { status } = await Location.requestForegroundPermissionsAsync();
 
-        if(permission?.status === 'granted') {
+        if(status === 'granted') {
             setLoading(true);
             setLocationText('');
 

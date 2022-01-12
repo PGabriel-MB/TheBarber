@@ -10,6 +10,7 @@ export const Container = styled.SafeAreaView`
 
 export const Header = styled.View`
     flex-direction: row;
+    justify-content: space-between;
 `;
 
 export const UserInfo = styled.View`
@@ -20,9 +21,10 @@ export const UserInfo = styled.View`
 
 export const UserInfoTitle = styled.Text`
     color: #000000;
-    font-size: 18px;
+    font-size: 30px;
     font-weight: bold;
     margin-bottom: 10px;
+    text-align: left;
 `;
 
 export const UserAvatar = styled.Text`
@@ -31,8 +33,7 @@ export const UserAvatar = styled.Text`
     background-color: #d4d1c9;
     border-radius: 20px;
     padding: 10px;
-    margin-left: 30px;
-    margin-right: 20px;
+    margin-left: 10px;
     border-width: 4px;
     border-color: #ffffff;
 `;
