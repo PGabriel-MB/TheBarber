@@ -37,3 +37,11 @@ export const UserAvatar = styled.Text`
     border-width: 4px;
     border-color: #ffffff;
 `;
+
+export const FormArea = styled.View`
+    border: 1px solid red;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+`;
+
