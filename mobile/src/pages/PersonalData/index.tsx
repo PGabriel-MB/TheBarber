@@ -13,6 +13,7 @@ import {
     UserInfoTitle,
     UserAvatar,
     FormArea,
+    Button
 } from "./styles";
 import { InputComp } from "../../components/InputComp";
 
@@ -80,14 +81,9 @@ const PersonalData: FC = () => {
                             width: '80%'
                         }}
                     />
-                    <TouchableOpacity style={{
-                        width:'15%',
-                        borderWidth: 1,
-                        borderStyle: 'solid',
-                        maxHeight: '50%'
-                    }}>
-                        <Text>Teste</Text>
-                    </TouchableOpacity>
+                    <Button>
+                        <Text style={{ color: "white", fontWeight: 'bold', fontSize: 20, textAlign: 'center'}}>+</Text>
+                    </Button>
                 </View>
             </FormArea>
         </Container>
