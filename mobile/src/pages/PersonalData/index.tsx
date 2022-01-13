@@ -5,6 +5,7 @@ import {
     useRoute,
     RouteProp
 } from '@react-navigation/native'
+import Toggle from 'react-toggle'
 
 import {
     Container,
@@ -13,6 +14,7 @@ import {
     UserInfoTitle,
     UserAvatar,
     FormArea,
+    Wrapper,
     Button
 } from "./styles";
 import { InputComp } from "../../components/InputComp";
@@ -46,8 +48,9 @@ const PersonalData: FC = () => {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [ddd, setDdd] = useState('');
     const [phones, setPhones] = useState('')
+    const [birthDate, setBirthDate] = useState('');
+    const [isBarber, setIsBarber] = useState(true);
 
     // definindo contexto de dados do usuario
     // iniciando desenvolvimento de itens visuais na tela
@@ -71,20 +74,30 @@ const PersonalData: FC = () => {
                     value={email}
                     setValue={setEmail}
                 />
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                <Wrapper>
                     <InputComp
                         label="Telefone"
                         placeholder="(00) 90000-0000"
                         value={phones}
                         setValue={setPhones}
-                        styles={{
-                            width: '80%'
-                        }}
+                        styles={{ width: '80%' }}
                     />
                     <Button>
                         <Text style={{ color: "white", fontWeight: 'bold', fontSize: 20, textAlign: 'center'}}>+</Text>
                     </Button>
-                </View>
+                </Wrapper>
+                <Wrapper>
+                    <InputComp
+                        label="Data de Nascimento"
+                        placeholder="12/03/1994"
+                        value={birthDate}
+                        setValue={setBirthDate}
+                        styles={{ width: '80%' }}
+                    />
+                    <Toggle
+                        defaultChacked={isBarber}
+                    />
+                </Wrapper>
             </FormArea>
         </Container>
     )

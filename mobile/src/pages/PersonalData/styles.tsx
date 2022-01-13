@@ -45,6 +45,12 @@ export const FormArea = styled.View`
     display: flex;
 `;
 
+export const Wrapper = styled.View`
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+`;
+
 export const Button = styled.TouchableOpacity`
     width: 15%;
     max-height: 50%;
