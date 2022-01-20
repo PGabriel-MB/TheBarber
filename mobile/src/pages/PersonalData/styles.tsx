@@ -60,3 +60,4 @@ export const Button = styled.TouchableOpacity`
     padding: 8px;
 `
 
+export const Toggle = styled.Switch``;

@@ -5,7 +5,6 @@ import {
     useRoute,
     RouteProp
 } from '@react-navigation/native'
-import Toggle from 'react-toggle'
 
 import {
     Container,
@@ -15,7 +14,8 @@ import {
     UserAvatar,
     FormArea,
     Wrapper,
-    Button
+    Button,
+    Toggle
 } from "./styles";
 import { InputComp } from "../../components/InputComp";
 
@@ -94,9 +94,23 @@ const PersonalData: FC = () => {
                         setValue={setBirthDate}
                         styles={{ width: '80%' }}
                     />
-                    <Toggle
-                        defaultChacked={isBarber}
-                    />
+                    <View style={{
+                        alignContent: 'space-between',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        flexDirection: 'column',
+                        marginLeft: 7
+                    }}>
+                        <Text style={{
+                            fontWeight: 'bold'
+                        }}>Barbeiro?</Text>
+                        <Toggle
+                            value={isBarber}
+                            onValueChange={setIsBarber}
+                            trackColor={{ false: '#babaca', true: "#000000" }}
+                            thumbColor={isBarber ? '#ffffff' : '#cfcfdf'}
+                        />
+                    </View>
                 </Wrapper>
             </FormArea>
         </Container>
