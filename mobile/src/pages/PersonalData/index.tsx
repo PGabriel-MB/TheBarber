@@ -146,7 +146,7 @@ const PersonalData: FC = () => {
                         styles={{ width: '35%' }}
                     />
                     <InputComp
-                        label="StaCte"
+                        label="Estado"
                         placeholder="Liberdade"
                         value={district}
                         setValue={setDistrict}
