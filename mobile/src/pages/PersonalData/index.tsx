@@ -52,8 +52,11 @@ const PersonalData: FC = () => {
     const [birthDate, setBirthDate] = useState('');
     const [isBarber, setIsBarber] = useState(true);
 
-    // definindo contexto de dados do usuario
-    // iniciando desenvolvimento de itens visuais na tela
+    const [address, setAddress] = useState('');
+    const [zipCode, setZipCode] = useState('');
+    const [district, setDistrict] = useState('');
+    const [city, setCity] = useState('');
+    const [state, setState] = useState('');
 
     return (
         <Container>
@@ -111,6 +114,44 @@ const PersonalData: FC = () => {
                             thumbColor={isBarber ? '#ffffff' : '#cfcfdf'}
                         />
                     </View>
+                </Wrapper>
+                <InputComp
+                    label="Endereço"
+                    placeholder="Avenida JK, 645"
+                    value={address}
+                    setValue={setAddress}
+                />
+                <Wrapper>
+                    <InputComp
+                        label="CEP"
+                        placeholder="00000-00"
+                        value={zipCode}
+                        setValue={setZipCode}
+                        styles={{ width: '35%' }}
+                    />
+                    <InputComp
+                        label="Bairro"
+                        placeholder="Liberdade"
+                        value={district}
+                        setValue={setDistrict}
+                        styles={{ width: '60%' }}
+                    />
+                </Wrapper>
+                <Wrapper>
+                    <InputComp
+                        label="Cidade"
+                        placeholder="Las Vegas"
+                        value={city}
+                        setValue={setCity}
+                        styles={{ width: '35%' }}
+                    />
+                    <InputComp
+                        label="StaCte"
+                        placeholder="Liberdade"
+                        value={district}
+                        setValue={setDistrict}
+                        styles={{ width: '60%' }}
+                    />
                 </Wrapper>
             </FormArea>
         </Container>
