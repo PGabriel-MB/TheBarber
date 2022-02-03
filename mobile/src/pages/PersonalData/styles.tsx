@@ -11,6 +11,8 @@ export const Container = styled.SafeAreaView`
 export const Header = styled.View`
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 10px;
 `;
 
 export const UserInfo = styled.View`
@@ -38,11 +40,12 @@ export const UserAvatar = styled.Text`
     border-color: #ffffff;
 `;
 
-export const FormArea = styled.View`
+export const FormArea = styled.ScrollView`
     border: 1px solid red;
     width: 100%;
     padding: 10px;
     display: flex;
+    margin-bottom: 10px;
 `;
 
 export const Wrapper = styled.View`
@@ -51,7 +54,7 @@ export const Wrapper = styled.View`
     align-items: center;
 `;
 
-export const Button = styled.TouchableOpacity`
+export const PlusPhoneButton = styled.TouchableOpacity`
     width: 15%;
     max-height: 50%;
     background-color: #000000;
@@ -61,3 +64,16 @@ export const Button = styled.TouchableOpacity`
 `
 
 export const Toggle = styled.Switch``;
+
+export const BottomButton = styled.TouchableOpacity`
+    margin: 5px;
+    border-radius: 8px;
+    padding: 8px;
+    width: 45%;
+`;
+
+export const BottomButtonText = styled.Text`
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px
+`;

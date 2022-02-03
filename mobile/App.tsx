@@ -11,7 +11,7 @@ export default function App() {
   return (
     <UserProvider>
       <NavigationContainer>
-        <StatusBar style="light" />
+        <StatusBar style='auto' />
         <MainStack />
       </NavigationContainer>
     </UserProvider>

@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect, useContext } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text } from "react-native";
 import {
     useNavigation,
     useRoute,
@@ -14,8 +14,10 @@ import {
     UserAvatar,
     FormArea,
     Wrapper,
-    Button,
-    Toggle
+    PlusPhoneButton,
+    Toggle,
+    BottomButton,
+    BottomButtonText
 } from "./styles";
 import { InputComp } from "../../components/InputComp";
 
@@ -85,9 +87,9 @@ const PersonalData: FC = () => {
                         setValue={setPhones}
                         styles={{ width: '80%' }}
                     />
-                    <Button>
+                    <PlusPhoneButton>
                         <Text style={{ color: "white", fontWeight: 'bold', fontSize: 20, textAlign: 'center'}}>+</Text>
-                    </Button>
+                    </PlusPhoneButton>
                 </Wrapper>
                 <Wrapper>
                     <InputComp
@@ -143,17 +145,43 @@ const PersonalData: FC = () => {
                         placeholder="Las Vegas"
                         value={city}
                         setValue={setCity}
-                        styles={{ width: '35%' }}
+                        styles={{ width: '75%' }}
                     />
                     <InputComp
                         label="Estado"
-                        placeholder="Liberdade"
-                        value={district}
-                        setValue={setDistrict}
-                        styles={{ width: '60%' }}
+                        placeholder="NV"
+                        value={state}
+                        setValue={setState}
+                        styles={{ width: '20%' }}
                     />
                 </Wrapper>
             </FormArea>
+            <Wrapper style={{ display: 'flex'}}>
+                <BottomButton
+                    style={{
+                        backgroundColor: '#b0b0a0'
+                    }}
+                >
+                    <BottomButtonText
+                        style={{ color: '#FFFFFF' }}
+                    >
+                        Cancelar
+                    </BottomButtonText>
+                </BottomButton>
+                <BottomButton
+                    style={{
+                        backgroundColor: '#0A0A0A'
+                    }}
+                >
+                    <BottomButtonText
+                        style={{
+                            color: '#FFFFFF'
+                        }}
+                    >
+                        Salvar
+                    </BottomButtonText>
+                </BottomButton>
+            </Wrapper>
         </Container>
     )
 }
