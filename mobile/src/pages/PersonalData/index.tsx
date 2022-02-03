@@ -158,9 +158,7 @@ const PersonalData: FC = () => {
             </FormArea>
             <Wrapper style={{ display: 'flex'}}>
                 <BottomButton
-                    style={{
-                        backgroundColor: '#b0b0a0'
-                    }}
+                    style={{ backgroundColor: '#b0b0a0'}}
                 >
                     <BottomButtonText
                         style={{ color: '#FFFFFF' }}
@@ -169,14 +167,10 @@ const PersonalData: FC = () => {
                     </BottomButtonText>
                 </BottomButton>
                 <BottomButton
-                    style={{
-                        backgroundColor: '#0A0A0A'
-                    }}
+                    style={{ backgroundColor: '#0A0A0A' }}
                 >
                     <BottomButtonText
-                        style={{
-                            color: '#FFFFFF'
-                        }}
+                        style={{ color: '#FFFFFF' }}
                     >
                         Salvar
                     </BottomButtonText>

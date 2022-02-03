@@ -9,7 +9,9 @@ export const Container = styled.SafeAreaView`
 `;
 
 export const Header = styled.View`
+    display: flex;
     flex-direction: row;
+    align-content: flex-end;
     justify-content: space-between;
     margin-top: 40px;
     margin-bottom: 10px;
@@ -22,11 +24,13 @@ export const UserInfo = styled.View`
 `;
 
 export const UserInfoTitle = styled.Text`
+    display: flex;
     color: #000000;
     font-size: 30px;
     font-weight: bold;
-    margin-bottom: 10px;
     text-align: left;
+    border: 1px solid red;
+    align-content: center;
 `;
 
 export const UserAvatar = styled.Text`
@@ -41,7 +45,6 @@ export const UserAvatar = styled.Text`
 `;
 
 export const FormArea = styled.ScrollView`
-    border: 1px solid red;
     width: 100%;
     padding: 10px;
     display: flex;
