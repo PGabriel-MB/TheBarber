@@ -25,12 +25,12 @@ export const UserInfo = styled.View`
 
 export const UserInfoTitle = styled.Text`
     display: flex;
+    align-content: center;
+    padding-top: 30px;
     color: #000000;
-    font-size: 30px;
+    font-size: 32px;
     font-weight: bold;
     text-align: left;
-    border: 1px solid red;
-    align-content: center;
 `;
 
 export const UserAvatar = styled.Text`

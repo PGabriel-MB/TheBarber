@@ -51,7 +51,7 @@ const PersonalData: FC = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phones, setPhones] = useState('')
-    const [birthDate, setBirthDate] = useState('');
+    const [birthDate, setBirthDate] = useState<Date>();
     const [isBarber, setIsBarber] = useState(true);
 
     const [address, setAddress] = useState('');
@@ -59,6 +59,20 @@ const PersonalData: FC = () => {
     const [district, setDistrict] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
+
+    useEffect(() => {
+        request.getUserWithFullDataById(data.user.id)
+            .then(res => {
+                const { user } = res.data
+                setName(user.name)
+                setEmail(user.email)
+                setBirthDate(user.birthDate)
+            });
+    })
+
+    const handleSave = () => {
+        
+    }
 
     return (
         <Container>

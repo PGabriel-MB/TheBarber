@@ -27,7 +27,9 @@ export class UserService {
                 stars: number,
                 phones: Array<any>,
                 _id: string,
-                name: string
+                name: string,
+                email: string,
+                birthDate: Date
             },
             services: Array<Service>
         }>(`users/services/${id}`, { headers: { 'Authorization': await this.utilService.buildHeader() }});
