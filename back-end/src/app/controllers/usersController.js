@@ -44,6 +44,7 @@ router.get('/services/:userId', async (req, res) => {
 });
 
 
+/*
 router.post('/address/:userId',  async(req, res) => {
     const { userId } = req.params;
 
@@ -58,39 +59,21 @@ router.post('/address/:userId',  async(req, res) => {
         return res.status(400).send({ error: 'Request failed!', err })
     }
 });
+*/
 
 router.patch('/:id', async (req, res) => {
     /**
      *  It does the user update
      */
     try {
-        let newOrUpdatedAddress = null;
         const _id = req.params.id;
-
-        const address = req.body.address;
-        req.body.address = undefined;
         
         const user_updated = await User.findOneAndUpdate(
             { _id },
             { ...req.body, updated: new Date() },
             { runValidators: true }
-        );
-        
-        if (address) {
-            
-            if (address.id) {
-                newOrUpdatedAddress = await Address.findOneAndUpdate(
-                    { _id: address.id },
-                    address,
-                    { runValidators: true }
-                );
-            } else {
-                newOrUpdatedAddress = await Address.create(address)
-                user_updated.address = newOrUpdatedAddress._id;
-            }
-            
-        }
-            
+        );       
+     
         res.send({ user_updated });
     } catch (err) {
         return res.status(400).send({ error: 'Request failed!', err })

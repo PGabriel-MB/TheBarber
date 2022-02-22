@@ -32,15 +32,6 @@ const UserSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    address: {
-        type: ObjectId,
-        ref: 'address',
-        required: false,
-    },
-    phones: [{
-        type: String,
-        required: true,
-    }],
     services:[{
         type: ObjectId,
         ref: 'service'

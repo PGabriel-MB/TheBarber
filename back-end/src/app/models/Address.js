@@ -28,7 +28,11 @@ const AddressSchema = new mongoose.Schema({
     },
     typeAddress: {
         type: String,
-        enum: ['RESIDENCIAL', 'COMMERCIAL', 'BOTH']
+        enum: ['RESIDENTIAL', 'BUSINESS', 'BOTH']
+    },
+    serviceProvider: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
     }
 });
 
