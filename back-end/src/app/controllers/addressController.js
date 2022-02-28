@@ -10,7 +10,7 @@ router.use(authMiddlware);
 router.get('/:id', async (req, res) => {
     const _id = req.params.id;
     const address = await Address.findOne({ _id });
-    res.send({ address });
+    res.send(address);
 });
 
 router.get('/user/:userId', async (req, res) => {

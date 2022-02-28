@@ -50,15 +50,8 @@ const PersonalData: FC = () => {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [phones, setPhones] = useState('')
     const [birthDate, setBirthDate] = useState<Date>();
     const [isBarber, setIsBarber] = useState(true);
-
-    const [address, setAddress] = useState('');
-    const [zipCode, setZipCode] = useState('');
-    const [district, setDistrict] = useState('');
-    const [city, setCity] = useState('');
-    const [state, setState] = useState('');
 
     useEffect(() => {
         request.getUserWithFullDataById(data.user.id)
@@ -93,103 +86,46 @@ const PersonalData: FC = () => {
                     value={email}
                     setValue={setEmail}
                 />
-                <Wrapper>
-                    <InputComp
-                        label="Telefone"
-                        placeholder="(00) 90000-0000"
-                        value={phones}
-                        setValue={setPhones}
-                        styles={{ width: '80%' }}
-                    />
-                    <PlusPhoneButton>
-                        <Text style={{ color: "white", fontWeight: 'bold', fontSize: 20, textAlign: 'center'}}>+</Text>
-                    </PlusPhoneButton>
-                </Wrapper>
-                <Wrapper>
-                    <InputComp
-                        label="Data de Nascimento"
-                        placeholder="12/03/1994"
-                        value={birthDate}
-                        setValue={setBirthDate}
-                        styles={{ width: '80%' }}
-                    />
-                    <View style={{
-                        alignContent: 'space-between',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        flexDirection: 'column',
-                        marginLeft: 7
-                    }}>
-                        <Text style={{
-                            fontWeight: 'bold'
-                        }}>Barbeiro?</Text>
-                        <Toggle
-                            value={isBarber}
-                            onValueChange={setIsBarber}
-                            trackColor={{ false: '#babaca', true: "#000000" }}
-                            thumbColor={isBarber ? '#ffffff' : '#cfcfdf'}
-                        />
-                    </View>
-                </Wrapper>
                 <InputComp
-                    label="Endereço"
-                    placeholder="Avenida JK, 645"
-                    value={address}
-                    setValue={setAddress}
+                    label="Data de Nascimento"
+                    placeholder="12/03/1994"
+                    value={birthDate}
+                    setValue={setBirthDate}
                 />
                 <Wrapper>
-                    <InputComp
-                        label="CEP"
-                        placeholder="00000-00"
-                        value={zipCode}
-                        setValue={setZipCode}
-                        styles={{ width: '35%' }}
-                    />
-                    <InputComp
-                        label="Bairro"
-                        placeholder="Liberdade"
-                        value={district}
-                        setValue={setDistrict}
-                        styles={{ width: '60%' }}
+                    <Text style={{
+                            fontWeight: 'bold'
+                        }}>Barbeiro?</Text>
+                    <Toggle
+                        value={isBarber}
+                        onValueChange={setIsBarber}
+                        trackColor={{ false: '#babaca', true: "#000000" }}
+                        thumbColor={isBarber ? '#ffffff' : '#cfcfdf'}
+                        style={{ transform: [{ scaleX: 1.5 }, { scaleY: 1.5 }] }}
                     />
                 </Wrapper>
-                <Wrapper>
-                    <InputComp
-                        label="Cidade"
-                        placeholder="Las Vegas"
-                        value={city}
-                        setValue={setCity}
-                        styles={{ width: '75%' }}
-                    />
-                    <InputComp
-                        label="Estado"
-                        placeholder="NV"
-                        value={state}
-                        setValue={setState}
-                        styles={{ width: '20%' }}
-                    />
+                <Wrapper style={{ display: 'flex', marginTop: 20}}>
+                    <BottomButton
+                        style={{ backgroundColor: '#b0b0a0'}}
+                    >
+                        <BottomButtonText
+                            style={{ color: '#FFFFFF' }}
+                        >
+                            Cancelar
+                        </BottomButtonText>
+                    </BottomButton>
+                    <BottomButton
+                        style={{ backgroundColor: '#0A0A0A' }}
+                    >
+                        <BottomButtonText
+                            style={{ color: '#FFFFFF' }}
+                        >
+                            Salvar
+                        </BottomButtonText>
+                    </BottomButton>
                 </Wrapper>
             </FormArea>
-            <Wrapper style={{ display: 'flex'}}>
-                <BottomButton
-                    style={{ backgroundColor: '#b0b0a0'}}
-                >
-                    <BottomButtonText
-                        style={{ color: '#FFFFFF' }}
-                    >
-                        Cancelar
-                    </BottomButtonText>
-                </BottomButton>
-                <BottomButton
-                    style={{ backgroundColor: '#0A0A0A' }}
-                >
-                    <BottomButtonText
-                        style={{ color: '#FFFFFF' }}
-                    >
-                        Salvar
-                    </BottomButtonText>
-                </BottomButton>
-            </Wrapper>
+            
         </Container>
     )
 }

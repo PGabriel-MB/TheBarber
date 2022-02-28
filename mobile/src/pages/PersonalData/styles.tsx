@@ -48,7 +48,6 @@ export const FormArea = styled.ScrollView`
     width: 100%;
     padding: 10px;
     display: flex;
-    margin-bottom: 10px;
 `;
 
 export const Wrapper = styled.View`
@@ -66,10 +65,11 @@ export const PlusPhoneButton = styled.TouchableOpacity`
     padding: 8px;
 `
 
-export const Toggle = styled.Switch``;
+export const Toggle = styled.Switch`
+    margin-right: 12px;
+`;
 
 export const BottomButton = styled.TouchableOpacity`
-    margin: 5px;
     border-radius: 8px;
     padding: 8px;
     width: 45%;
