@@ -20,6 +20,7 @@ import {
     BottomButtonText
 } from "./styles";
 import { InputComp } from "../../components/InputComp";
+import { NextPageButton } from "../../components/NextPageButton";
 
 import { UserService } from "../../api/services/UserService";
 import { UserContext } from "../../contexts/UserContext";
@@ -35,10 +36,8 @@ interface iPD {
     _id: string,
     name: string,
     email: string,
-    phones: Array<any>,
     serviceProvider: boolean,
-    birthDate: Date,
-    address: object
+    birthDate: Date
 }
 
 const PersonalData: FC = () => {
@@ -57,11 +56,16 @@ const PersonalData: FC = () => {
         request.getUserWithFullDataById(data.user.id)
             .then(res => {
                 const { user } = res.data
-                setName(user.name)
-                setEmail(user.email)
-                setBirthDate(user.birthDate)
+                fillAllFields(user);
             });
-    })
+    },  []);
+
+    const fillAllFields = (data: iPD) => {
+        setName(data.name)
+        setEmail(data.email)
+        setBirthDate(data.birthDate)
+        setIsBarber(data.serviceProvider)
+    }
 
     const handleSave = () => {
         
