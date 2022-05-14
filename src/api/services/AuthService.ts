@@ -1,14 +1,21 @@
 import ConstantService from "./ConstantService";
-import { LoginCredentials, RegisterCredentials } from "../interfaces/Auth";
+import { AuthData, LoginCredentials, RegisterCredentials,  } from "../interfaces/Auth";
 
 export class AuthService {
     private constantService = ConstantService;
 
-    signIn = async (credentials: LoginCredentials): => {
-        return await this.constantService.post('/auth/authenticate', { email: credentials.email, password: credentials.password });
+    signIn = async (credentials: LoginCredentials): Promise<AuthData> => {
+        
+        return await this.constantService.post(
+            '/auth/authenticate',
+            {
+                email: credentials.email,
+                password: credentials.password
+            }
+        );
     }
 
-    signUp = async (credentials: RegisterCredentials ) => {
+    signUp = async (credentials: RegisterCredentials ): Promise<AuthData> => {
         return await this.constantService.post('/auth/register', credentials);
     }
 

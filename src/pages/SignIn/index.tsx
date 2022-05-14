@@ -29,12 +29,12 @@ const SignIn: React.FC = () => {
 
         if (email !== '' && password !== '') {
             await authService.signIn({ email, password })
-                .then(async res => {
-                    await AsyncStorage.setItem('token', res.data.token);
+                .then(async data => {
+                    await AsyncStorage.setItem('token', data.token);
 
                     userDispatch({
                         type: 'setUser',
-                        payload: res.data.user
+                        payload: data.user
                     });
 
                     navigation.reset({

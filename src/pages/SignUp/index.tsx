@@ -31,14 +31,14 @@ const SignUp: React.FC = () => {
             if (password1 === password2) {
                 authService.signUp(
                     { name, email, password: password2 }
-                ).then(res => {
-                    AsyncStorage.setItem('token', res.data.token);
+                ).then(data => {
+                    AsyncStorage.setItem('token', data.token);
 
                     ToastAndroid.show('Cadastro realizado com Sucesso!', ToastAndroid.SHORT);
 
                     userDispatch({
                         type: 'setUser',
-                        payload: res.data.user
+                        payload: data.user
                     });
 
                     navigation.reset({
