@@ -3,25 +3,25 @@ import { UtilsService } from "./UtilsService";
 import { Service } from "../interfaces/Service";
 
 export class UserService {
-    private constanteService = ConstantService;
+    private constantService = ConstantService;
     private utilService = new UtilsService();
 
     getUsers = async (onlyBarbers = false) => {
         if(onlyBarbers)
-            return this.constanteService.post('/users/', { onlyBarbers });
+            return this.constantService.post('/users/', { onlyBarbers });
                 
-        return this.constanteService.get(
+        return this.constantService.get(
             '/users/',
             { headers: { 'Authorization': await this.utilService.buildHeader() } }
         );
     }
 
     getUserById = async (id: string) => {
-        return this.constanteService.get(`users/${id}`, { headers: { 'Authorization': await this.utilService.buildHeader() }});
+        return this.constantService.get(`users/${id}`, { headers: { 'Authorization': await this.utilService.buildHeader() }});
     }
 
     getUserWithFullDataById = async (id: string) => {
-        return this.constanteService.get<{
+        return this.constantService.get<{
             user: {
                 serviceProvider: boolean,
                 stars: number,

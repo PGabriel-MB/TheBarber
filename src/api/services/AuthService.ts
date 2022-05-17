@@ -5,21 +5,29 @@ export class AuthService {
     private constantService = ConstantService;
 
     signIn = async (credentials: LoginCredentials): Promise<AuthData> => {
-        
-        return await this.constantService.post(
+
+        const { data } = await this.constantService.post(
             '/auth/authenticate',
             {
                 email: credentials.email,
                 password: credentials.password
             }
         );
+
+        return data;
     }
 
     signUp = async (credentials: RegisterCredentials ): Promise<AuthData> => {
-        return await this.constantService.post('/auth/register', credentials);
+
+        const { data } = await this.constantService.post('/auth/register', credentials);
+
+        return data
     }
 
     checkToken = async (token: string) => {
-        return await this.constantService.post('/validate-token', { token });
+        
+        const { data } = await this.constantService.post('/validate-token', { token });
+
+        return data;
     }
 }

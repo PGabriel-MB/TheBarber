@@ -27,11 +27,17 @@ const SignUp: React.FC = () => {
     const [password2, setPassword2] = useState('');
 
     const handleRegistrate = () => {
+
         if (name && email && password1 && password2) {
+
             if (password1 === password2) {
-                authService.signUp(
-                    { name, email, password: password2 }
-                ).then(data => {
+
+                authService.signUp({
+                    name,
+                    email,
+                    password: password2 
+                }).then(data => {
+
                     AsyncStorage.setItem('token', data.token);
 
                     ToastAndroid.show('Cadastro realizado com Sucesso!', ToastAndroid.SHORT);
