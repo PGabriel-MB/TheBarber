@@ -6,7 +6,7 @@ import { User } from "../interfaces/User";
 import { ServiceProvider } from "../interfaces/ServiceProvider";
 
 
-export class SeviceProviderService {
+export class ServiceProviderService {
     private constantService = ConstantService;
     private utilService = new UtilsService();
 

@@ -60,3 +60,12 @@ export const ListArea = styled.View`
     margin-top: 30px;
     margin-bottom: 30px;
 `;
+
+export const EmptyMessage = styled.Text`
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    width: 250px;
+    margin-top: 20px;
+    text-align: center;
+`;

@@ -16,19 +16,21 @@ import {
     LocationFinder,
     LoadingIcon,
 
-    ListArea
+    ListArea,
+    EmptyMessage
 } from "./styles";
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faSearch, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { UserService } from "../../api/services/UserService";
+import { ServiceProviderService } from "../../api/services/ServiceProviderService";
 import { BarberItemUser } from "../../components/BarberItemUser";
 import { User } from "../../api/interfaces/User";
 
 
 const Home: React.FC = () => {
     const navigation = useNavigation();
-    const userService = new UserService();
+    const serviceProviderService = new ServiceProviderService();
     
     const [locationText, setLocationText] = useState('');
     const [coords, setCoords] = useState({});
@@ -54,9 +56,9 @@ const Home: React.FC = () => {
         setLoading(true);
         setList([]);
 
-        await userService.getUsers()
-            .then(async res => {
-                const users = await res.data.users;
+        await serviceProviderService.getServiceProviders()
+            .then(async sps => {
+                const users = await sps;
                 const newUsers: User[] = [];
                 users.map((user: User) => (newUsers.push(user)));
                 setList(users);
@@ -104,9 +106,13 @@ const Home: React.FC = () => {
                 <LoadingIcon size="large" color="#757575" />}
 
                 <ListArea>
-                    {list.map((item: User, key) => (
-                        <BarberItemUser key={key} {...item}  />
-                    ))}
+                    {
+                        list.length > 0 ? 
+                        list.map((item: User, key) => (
+                            <BarberItemUser key={key} {...item}  />
+                        )) :
+                        <EmptyMessage>Não existem barbeiros por aqui...</EmptyMessage>
+                    }
                 </ListArea>
             </Scroller>
         </Container>
