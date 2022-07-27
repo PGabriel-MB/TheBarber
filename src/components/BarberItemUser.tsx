@@ -32,6 +32,7 @@ const InfoArea = styled.View`
 const UserName = styled.Text`
     font-size: 20px;
     font-weight: bold;
+    margin-bottom: 3px;
 `;
 
 const SeeProfileButton = styled.TouchableOpacity`
@@ -40,7 +41,8 @@ const SeeProfileButton = styled.TouchableOpacity`
     background-color: #AAAAAA;
     border-radius: 10px;
     justify-content: center;
-    align-items: center
+    align-items: center;
+    margin-top: 7px;
 `;
 const SeeProfileButtonText = styled.Text`
     color: #ffffff;

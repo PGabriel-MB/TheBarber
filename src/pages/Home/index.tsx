@@ -59,8 +59,8 @@ const Home: React.FC = () => {
         await serviceProviderService.getServiceProviders()
             .then(async sps => {
                 const users = await sps;
-                const newUsers: User[] = [];
-                users.map((user: User) => (newUsers.push(user)));
+                //const newUsers: User[] = [];
+                //users.map((user: User) => (newUsers.push(user)));
                 setList(users);
             }).catch(err => console.log('Data recovery error', err));
 

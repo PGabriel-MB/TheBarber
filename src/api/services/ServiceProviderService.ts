@@ -17,7 +17,7 @@ export class ServiceProviderService {
             { headers: { 'Authorization': await this.utilService.buildHeader() } }
         );
 
-        return data;
+        return data.serviceProviders;
     }
 
     getServiceProviderById = async (id: string): Promise<User> => {
